@@ -79,7 +79,7 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousPeriodic() {
   }
-
+//poopity scoop
   @Override
   public void teleopInit() {
     // This makes sure that the autonomous stops running when
