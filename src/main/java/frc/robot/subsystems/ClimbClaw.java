@@ -6,14 +6,20 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.subsystems;
-
+import frc.robot.Constants;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 public class ClimbClaw extends SubsystemBase {
   /**
    * Creates a new ClimbClaw.
    */
+
+  private WPI_TalonSRX climbClawMotor = new WPI_TalonSRX(Constants.CLIMB_CLAW_MOTOR);
+
   public ClimbClaw() {
+
+    climbClawMotor.set(0);
 
   }
 

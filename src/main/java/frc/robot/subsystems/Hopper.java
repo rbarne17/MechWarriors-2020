@@ -6,14 +6,22 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.subsystems;
-
+import frc.robot.Constants;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 public class Hopper extends SubsystemBase {
   /**
    * Creates a new Hopper.
    */
+
+  private WPI_TalonSRX leftHopperMotor = new WPI_TalonSRX(Constants.HOPPER_LEFT_MOTOR);
+  private WPI_TalonSRX rightHopperMotor = new WPI_TalonSRX(Constants.HOPPER_RIGHT_MOTOR);
+
   public Hopper() {
+
+    leftHopperMotor.set(0);
+    rightHopperMotor.set(0);
 
   }
 

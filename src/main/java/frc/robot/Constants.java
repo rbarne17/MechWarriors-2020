@@ -28,10 +28,8 @@ public final class Constants {
     public static final int SHOOTER_LEFT_MOTOR = 5;
     public static final int SHOOTER_RIGHT_MOTOR = 6;
 
-
-
-    
-
-
+    public static final int HOPPER_LEFT_MOTOR = 7;
+    public static final int HOPPER_RIGHT_MOTOR = 8;
+    public static final int CLIMB_CLAW_MOTOR = 9;
 
 }
