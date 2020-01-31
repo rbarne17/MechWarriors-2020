@@ -16,4 +16,19 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+    //CHANGED PORTS
+    public static final int DRIVETRAIN_LEFT_SPARK = 0;
+    public static final int DRIVETRAIN_RIGHT_SPARK = 1;
+
+    //CAN PORTS
+    public static final int FUELINTAKE_LEFT_MOTOR = 1;
+    public static final int FUELINTAKE_RIGHT_MOTOR = 2;
+    public static final int TURNTABLE_LEFT_MOTOR = 3;
+    public static final int TURNTABLE_RIGHT_MOTOR = 4;
+
+
+    
+
+
+
 }

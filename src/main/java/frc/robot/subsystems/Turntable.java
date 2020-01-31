@@ -6,32 +6,23 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.subsystems;
-
 import frc.robot.Constants;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-
-//May have to install the pheonix ones
-//import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-public class FuelIntake extends SubsystemBase {
-  private WPI_TalonSRX leftIntakeMotor = new WPI_TalonSRX(Constants.FUELINTAKE_LEFT_MOTOR);
-  private WPI_TalonSRX rightIntakeMotor = new WPI_TalonSRX(Constants.FUELINTAKE_RIGHT_MOTOR);
 
+public class Turntable extends SubsystemBase {
   /**
-   * Creates a new FuelIntake.
+   * Creates a new Turntable.
    */
+  private WPI_TalonSRX leftTurntableMotor = new WPI_TalonSRX(Constants.TURNTABLE_LEFT_MOTOR);
+  private WPI_TalonSRX rightTurntableMotor = new WPI_TalonSRX(Constants.TURNTABLE_RIGHT_MOTOR);
 
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
-  //change to CAN (?)
-	public final int ticksPerFoot = 166;  
+  public Turntable() {
+
+      leftTurntableMotor.set(0);
+      rightTurntableMotor.set(0);
   
-  public FuelIntake() {
-
-    leftIntakeMotor.set(0.0);
-		rightIntakeMotor.set(0.0);
-
   }
 
   @Override

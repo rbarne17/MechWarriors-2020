@@ -10,8 +10,10 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.RobotContainer;
-import frc.robot.commands.Drive;
+import frc.robot.Constants;
+//import frc.robot.RobotContainer;
+//import frc.robot.commands.Drive;
+import frc.robot.commands.DriveWithController;
 
 
 public class DriveTrain extends SubsystemBase {
@@ -19,8 +21,8 @@ public class DriveTrain extends SubsystemBase {
    * Creates a new DriveTrain.
    */
   public final int ticksPerFoot = 166;
-  public Spark leftMotor = new Spark(RobotContainer.DRIVETRAIN_LEFT_SPARK);
-  public Spark rightMotor = new Spark(RobotContainer.DRIVETRAIN_RIGHT_SPARK);
+  public Spark leftMotor = new Spark(Constants.DRIVETRAIN_LEFT_SPARK);
+  public Spark rightMotor = new Spark(Constants.DRIVETRAIN_RIGHT_SPARK);
   private Encoder leftEncoder;
   private Encoder rightEncoder;
 
@@ -29,8 +31,11 @@ public class DriveTrain extends SubsystemBase {
     rightMotor.set(0);
 
   }
-  public void initDefaultCommand(){
-    setDefaultCommand(new Drive());
+
+  //COME BACK TO THIS for PERIODIC (using)
+  //
+  public void driveTrain(){
+    setDefaultCommand(new DriveWithController());
   }
 
   public void driveByTank(double LeftpercentThrottle, double RightpercentThrottle){
