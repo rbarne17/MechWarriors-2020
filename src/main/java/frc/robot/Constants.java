@@ -25,6 +25,9 @@ public final class Constants {
     public static final int FUELINTAKE_RIGHT_MOTOR = 2;
     public static final int TURNTABLE_LEFT_MOTOR = 3;
     public static final int TURNTABLE_RIGHT_MOTOR = 4;
+    public static final int SHOOTER_LEFT_MOTOR = 5;
+    public static final int SHOOTER_RIGHT_MOTOR = 6;
+
 
 
     
