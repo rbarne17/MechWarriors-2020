@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotContainer;
-import frc.robot.subsystems.*;
+import frc.robot.commands.Drive;
 
 
 public class DriveTrain extends SubsystemBase {
@@ -25,8 +25,8 @@ public class DriveTrain extends SubsystemBase {
   private Encoder rightEncoder;
 
   public DriveTrain() {
-    leftMotor.set(0,0);
-    rightMotor.set(0,0);
+    leftMotor.set(0);
+    rightMotor.set(0);
 
   }
   public void initDefaultCommand(){
