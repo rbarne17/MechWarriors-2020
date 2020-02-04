@@ -71,5 +71,7 @@ public class FuelIntake extends SubsystemBase {
   public void stopFuelIntake() {
     fuelIntakeMotor.set(0.0);
   }
-
+  @Override
+  public void periodic() {
+    //
 }
