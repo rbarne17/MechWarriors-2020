@@ -7,35 +7,69 @@
 
 package frc.robot.subsystems;
 
-import frc.robot.Constants;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-//May have to install the pheonix ones
-//import com.ctre.phoenix.motorcontrol.FeedbackDevice;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
+//import frc.robot.RobotContainer;
+//import frc.robot.commands.Drive;
+
+import frc.robot.Constants;
 
 public class FuelIntake extends SubsystemBase {
-  private WPI_TalonSRX leftIntakeMotor = new WPI_TalonSRX(Constants.FUELINTAKE_LEFT_MOTOR);
-  private WPI_TalonSRX rightIntakeMotor = new WPI_TalonSRX(Constants.FUELINTAKE_RIGHT_MOTOR);
 
-  /**
-   * Creates a new FuelIntake.
+  /*
+   * get means use encoder and set means use LIFT_MOTOR
    */
 
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
-  //change to CAN (?)
-	public final int ticksPerFoot = 166;  
-  
+  private WPI_TalonSRX fuelIntakeMotor = new WPI_TalonSRX(Constants.FUEL_INTAKE_MOTOR);
+
   public FuelIntake() {
-
-    leftIntakeMotor.set(0.0);
-		rightIntakeMotor.set(0.0);
-
+    fuelIntakeMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
+    stopFuelIntake();
   }
 
-  @Override
-  public void periodic() {
-    // This method will be called once per scheduler run
+  /*
+  public void initDefaultCommand() {
+    setDefaultCommand(new FuelIntakeWithController());
   }
+*/
+  public int getFuelIntakeEncoder() {
+    return fuelIntakeMotor.getSelectedSensorPosition();
+  }
+
+  public boolean getFuelIntakeLimitSwitchLow() {
+    return fuelIntakeMotor.getSensorCollection().isRevLimitSwitchClosed();
+  }
+
+  public boolean getFuelIntakeLimitSwitchHigh() {
+    return fuelIntakeMotor.getSensorCollection().isFwdLimitSwitchClosed();
+  }
+
+  public void setFuelIntakeDirection(double intakeSpeed, int fuelIntakeTarget) {
+    if (getFuelIntakeEncoder() < fuelIntakeTarget) {
+      setFuelIntakeUp(intakeSpeed);
+    } 
+    else {
+      setFuelIntakeDown(intakeSpeed);
+    }
+  }
+
+  public void setFuelIntakeUp(double intakeSpeed) {
+    fuelIntakeMotor.set(intakeSpeed);
+  }
+
+  public void setFuelIntakeDown(double intakeSpeed) {
+    fuelIntakeMotor.set(-intakeSpeed);
+  }
+
+  public void resetFuelIntakeEncoder() {
+    fuelIntakeMotor.setSelectedSensorPosition(0);
+  }
+
+  public void stopFuelIntake() {
+    fuelIntakeMotor.set(0.0);
+  }
+
 }
