@@ -29,7 +29,6 @@ public class DriveTrain extends SubsystemBase {
   public DriveTrain() {
     leftMotor.set(0);
     rightMotor.set(0);
-
   }
 
   //COME BACK TO THIS for PERIODIC (using)
@@ -75,7 +74,8 @@ public class DriveTrain extends SubsystemBase {
     double deadzone = 0.2;
     if(Math.abs(currentValue) < deadzone){
       return 0;
-    }else{
+    } 
+    else{
       return currentValue;
     
     }

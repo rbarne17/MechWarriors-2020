@@ -31,5 +31,6 @@ public final class Constants {
     public static final int HOPPER_LEFT_MOTOR = 7;
     public static final int HOPPER_RIGHT_MOTOR = 8;
     public static final int CLIMB_CLAW_MOTOR = 9;
-
+    public static final int FUEL_INTAKE_MOTOR = 10;
+    
 }
