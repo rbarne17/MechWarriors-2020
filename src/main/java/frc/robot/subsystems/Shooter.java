@@ -16,7 +16,13 @@ public class Shooter extends SubsystemBase {
   public Shooter() {
 
   }
+//Encoder will be used for speed 
+public int getMiniSims(){
 
+}
+ public int getSimEncoder(){
+
+ }
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
