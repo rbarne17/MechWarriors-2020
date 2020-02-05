@@ -25,10 +25,10 @@ public class Shooter extends SubsystemBase {
   }
 //Encoder will be used for speed 
 public int getMiniSims(){
-
+  return 0;
 }
  public int getSimEncoder(){
-
+   return 0;
  }
   @Override
   public void periodic() {
