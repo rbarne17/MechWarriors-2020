@@ -22,6 +22,14 @@ public class ClimbClaw extends SubsystemBase {
     climbClawMotor.set(0);
 
   }
+  public int /**
+   * @return the climbClawMotor
+   */
+  
+  }
+  public int getRssMotor(){
+
+  }
 
   @Override
   public void periodic() {

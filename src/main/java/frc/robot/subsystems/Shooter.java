@@ -23,6 +23,14 @@ public class Shooter extends SubsystemBase {
     rightShooterMotor.set(0);
 
   }
+//Encoder will be used for speed 
+  public int getMiniSims(){
+
+  }
+   public int getSimEncoder(){
+
+   }
+   
 
   @Override
   public void periodic() {
