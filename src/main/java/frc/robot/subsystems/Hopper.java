@@ -24,6 +24,9 @@ public class Hopper extends SubsystemBase {
     rightHopperMotor.set(0);
 
   }
+ 
+  
+//zero position switch
 
   @Override
   public void periodic() {
