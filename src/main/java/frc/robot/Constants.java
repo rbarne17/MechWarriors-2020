@@ -32,6 +32,8 @@ public final class Constants {
     public static final int HOPPER_RIGHT_MOTOR = 8;
     public static final int CLIMB_CLAW_MOTOR = 9;
     public static final int FUEL_INTAKE_MOTOR = 10;
-	public static final double TURNTABLE_TICKS_PER_DEGREE = 0;
+    public static final double TURNTABLE_TICKS_PER_DEGREE = 0;
+    public static final double SHOOTER_TICKS_PER_DEGREE = 0;
+
     
 }

@@ -16,8 +16,8 @@ public class PositionTurntable extends CommandBase {
    */
   private double turnTableTicks;
   private double turnTableDegree;
-  public PositionTurntable(double turnTableDegree) { 
   
+  public PositionTurntable(double turnTableDegree) { 
     this.turnTableTicks = turnTableDegree * Constants.TURNTABLE_TICKS_PER_DEGREE;
     // Use addRequirements() here to declare subsystem dependencies.
   }

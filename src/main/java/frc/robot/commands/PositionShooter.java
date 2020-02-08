@@ -8,11 +8,19 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Constants;
 
 public class PositionShooter extends CommandBase {
   /**
    * Creates a new PositionShooter.
    */
+  private double shooterTicks;
+
+  public PositionShooter(double shooterDegree) { 
+    this.shooterTicks = shooterDegree * Constants.SHOOTER_TICKS_PER_DEGREE;
+    // Use addRequirements() here to declare subsystem dependencies.
+  }
+
   public PositionShooter() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
@@ -35,6 +43,7 @@ public class PositionShooter extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    if (shooterDegree <= 0.0 ){return true;} else {return false;}
+
   }
 }
