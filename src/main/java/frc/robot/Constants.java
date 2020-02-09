@@ -35,5 +35,7 @@ public final class Constants {
     public static final double TURNTABLE_TICKS_PER_DEGREE = 0;
     public static final double SHOOTER_TICKS_PER_DEGREE = 0;
 
-    
+    //AUTONOMOUS PIVOT TURNTABLE MIDDLE
+    //AUTONOMOUS PIVOT TURNTABLE RIGHT
+    //AUTONOMOUS PIOVT TURNTABLE LEFT
 }

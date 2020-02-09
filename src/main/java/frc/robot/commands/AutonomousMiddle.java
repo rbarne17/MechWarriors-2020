@@ -20,5 +20,13 @@ public class AutonomousMiddle extends SequentialCommandGroup {
     // Add your commands in the super() call, e.g.
     // super(new FooCommand(), new BarCommand());
     super();
+    
+    addCommands(
+      new
+      new
+      new
+
+    );
+     
   }
 }
