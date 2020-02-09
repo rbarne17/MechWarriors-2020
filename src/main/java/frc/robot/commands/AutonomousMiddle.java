@@ -22,9 +22,10 @@ public class AutonomousMiddle extends SequentialCommandGroup {
     super();
     
     addCommands(
-      new
-      new
-      new
+      //add commands you want here
+      // new
+      // new
+      // new
 
     );
      

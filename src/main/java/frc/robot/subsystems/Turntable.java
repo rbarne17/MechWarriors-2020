@@ -6,26 +6,79 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.subsystems;
-import frc.robot.Constants;
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import frc.robot.Constants;
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 public class Turntable extends SubsystemBase {
   /**
    * Creates a new Turntable.
    */
-  private WPI_TalonSRX leftTurntableMotor = new WPI_TalonSRX(Constants.TURNTABLE_LEFT_MOTOR);
-  private WPI_TalonSRX rightTurntableMotor = new WPI_TalonSRX(Constants.TURNTABLE_RIGHT_MOTOR);
+
+  // CAN motor with built in encoder, plus limit switch connected to DIO (latter
+  // might change to CAN connected limit switch) '
+  private WPI_TalonSRX turntableMotor = new WPI_TalonSRX(Constants.TURNTABLE_MOTOR);
+  private DigitalInput turntableLimitZero = new DigitalInput(Constants.TURNTABLE_LIMIT_ZERO);
 
   public Turntable() {
-
-      leftTurntableMotor.set(0);
-      rightTurntableMotor.set(0);
-  
+    // when class instantiated (new Turntable...),
+    // 1. stop motor
+    // 2.set up CAN connected encoder
+    stopTurntable();
+    turntableMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
   }
-  public double getSensorDegree(){
-    return 0.0;
+
+  public void pivotTurntable(boolean direction) {
+    // direction true, clockwise
+    // direction false, counterclockwise
+    if (direction) {
+      turntableMotor.set(Constants.TURNTABLE_MOTOR_SPEED);
+    } else {
+      turntableMotor.set(-Constants.TURNTABLE_MOTOR_SPEED);
+    }
+  }
+
+  public double getTurntablePivotDegrees() {
+    return getTurntableEncoderValue() * Constants.TURNTABLE_TICKS_PER_DEGREE;
+  }
+
+  public void resetTurntablePivotDegrees() {
+    resetTurntableEncoder();
+  }
+
+  public void stopTurntable() {
+    turntableMotor.set(0.0);
+  }
+
+  public void setHome() {
+    while (!getHome()) {
+      // if turntable turned clockwise (> 0.0) turn counterclockwise (false)
+      // if turntable turned counterclockwise (< 0.0) turn clockwise (true)
+      if (getTurntablePivotDegrees() > 0.0) {
+        pivotTurntable(false);
+      } else if (getTurntablePivotDegrees() < 0.0) {
+        pivotTurntable(true);
+      }
+
+      resetTurntablePivotDegrees();
+
+    }
+  }
+
+  public boolean getHome() {
+    return turntableLimitZero.get();
+  }
+
+  private void resetTurntableEncoder() {
+    turntableMotor.setSelectedSensorPosition(0);
+  }
+
+  private int getTurntableEncoderValue() {
+    return turntableMotor.getSelectedSensorPosition();
   }
 
   @Override

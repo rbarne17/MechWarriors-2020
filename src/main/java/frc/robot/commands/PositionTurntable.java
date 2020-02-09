@@ -8,18 +8,19 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.Constants;
+import frc.robot.subsystems.Turntable;
 
 public class PositionTurntable extends CommandBase {
   /**
    * Creates a new PositionTurntable.
    */
-  private double turnTableTicks;
-  private double turnTableDegree;
-  
-  public PositionTurntable(double turnTableDegree) { 
-    this.turnTableTicks = turnTableDegree * Constants.TURNTABLE_TICKS_PER_DEGREE;
-    // Use addRequirements() here to declare subsystem dependencies.
+  private double m_turntabledegrees;
+  private Turntable m_turntable;
+
+  public PositionTurntable(Turntable turntable, double turnTableDegrees) {
+    this.m_turntable = turntable;
+    this.m_turntabledegrees = turnTableDegrees;
+    addRequirements(m_turntable);
   }
 
   // Called when the command is initially scheduled.
@@ -30,6 +31,17 @@ public class PositionTurntable extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    // if passing through home position, reset pivot degrees to 0
+    if (m_turntable.getHome()) {
+      m_turntable.resetTurntablePivotDegrees();
+    }
+
+    // false means turn counterclockwise, true clockwise
+    if (m_turntabledegrees > 0.0) {
+      m_turntable.pivotTurntable(false);
+    } else if (m_turntabledegrees < 0.0) {
+      m_turntable.pivotTurntable(true);
+    }
   }
 
   // Called once the command ends or is interrupted.
@@ -40,6 +52,10 @@ public class PositionTurntable extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (turnTableDegree <= 0.0 ){return true;} else {return false;}
+    if (Math.abs(m_turntable.getTurntablePivotDegrees()) >= Math.abs(m_turntabledegrees)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
