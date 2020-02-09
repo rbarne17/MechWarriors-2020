@@ -24,6 +24,9 @@ public class Turntable extends SubsystemBase {
       rightTurntableMotor.set(0);
   
   }
+  public double getSensorDegree(){
+    return 0.0;
+  }
 
   @Override
   public void periodic() {
