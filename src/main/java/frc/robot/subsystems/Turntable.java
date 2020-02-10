@@ -42,11 +42,11 @@ public class Turntable extends SubsystemBase {
     }
   }
 
-  public double getTurntablePivotDegrees() {
+  public double getTurntablePivotAngle() {
     return getTurntableEncoderValue() * Constants.TURNTABLE_TICKS_PER_DEGREE;
   }
 
-  public void resetTurntablePivotDegrees() {
+  public void resetTurntablePivotAngle() {
     resetTurntableEncoder();
   }
 
@@ -58,13 +58,13 @@ public class Turntable extends SubsystemBase {
     while (!getHome()) {
       // if turntable turned clockwise (> 0.0) turn counterclockwise (false)
       // if turntable turned counterclockwise (< 0.0) turn clockwise (true)
-      if (getTurntablePivotDegrees() > 0.0) {
+      if (getTurntablePivotAngle() > 0.0) {
         pivotTurntable(false);
-      } else if (getTurntablePivotDegrees() < 0.0) {
+      } else if (getTurntablePivotAngle() < 0.0) {
         pivotTurntable(true);
       }
 
-      resetTurntablePivotDegrees();
+      resetTurntablePivotAngle();
 
     }
   }

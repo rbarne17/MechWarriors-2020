@@ -14,12 +14,12 @@ public class PositionTurntable extends CommandBase {
   /**
    * Creates a new PositionTurntable.
    */
-  private double m_turntabledegrees;
+  private double m_pivotangle;
   private Turntable m_turntable;
 
-  public PositionTurntable(Turntable turntable, double turnTableDegrees) {
+  public PositionTurntable(Turntable turntable, double pivotAngle) {
     this.m_turntable = turntable;
-    this.m_turntabledegrees = turnTableDegrees;
+    this.m_pivotangle = pivotAngle;
     addRequirements(m_turntable);
   }
 
@@ -33,14 +33,14 @@ public class PositionTurntable extends CommandBase {
   public void execute() {
     // if passing through home position, reset pivot degrees to 0
     if (m_turntable.getHome()) {
-      m_turntable.resetTurntablePivotDegrees();
+      m_turntable.resetTurntablePivotAngle();
     }
 
     // false means turn counterclockwise, true clockwise
-    if (m_turntabledegrees > 0.0) {
-      m_turntable.pivotTurntable(false);
-    } else if (m_turntabledegrees < 0.0) {
+    if (m_pivotangle > 0.0) {
       m_turntable.pivotTurntable(true);
+    } else if (m_pivotangle < 0.0) {
+      m_turntable.pivotTurntable(false);
     }
   }
 
@@ -52,7 +52,10 @@ public class PositionTurntable extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (Math.abs(m_turntable.getTurntablePivotDegrees()) >= Math.abs(m_turntabledegrees)) {
+    //if angle to pivot to is greater than zero (clockwise) has the turntable pivoted to equal or greater than that angle
+    if (((m_turntable.getTurntablePivotAngle() >= m_pivotangle) && (m_pivotangle > 0))
+     //if angle to pivot to is less than zero (counterclockwise) has the turntable pivoted to equal or greater than that angle
+     || (m_turntable.getTurntablePivotAngle() <= m_pivotangle) && (m_pivotangle < 0)) {
       return true;
     } else {
       return false;
