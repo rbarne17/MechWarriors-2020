@@ -32,8 +32,8 @@ public final class Constants {
     public static final int CANNON_BARREL_LEFT_MOTOR = 5;
     public static final int CANNON_BARREL_RIGHT_MOTOR = 6;
 
-    public static final int CANNON_HOPPER_LEFT_MOTOR = 7;
-    public static final int CANNON_HOPPER_RIGHT_MOTOR = 8;
+    public static final int CANNON_RAMMER_LEFT_MOTOR = 7;
+    public static final int CANNON_RAMMER_RIGHT_MOTOR = 8;
     public static final int CLIMB_CLAW_MOTOR = 9;
     public static final int GROUND_LOADER_MOTOR = 10;
 

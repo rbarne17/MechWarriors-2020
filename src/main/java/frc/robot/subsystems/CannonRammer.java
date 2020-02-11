@@ -10,18 +10,18 @@ import frc.robot.Constants;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-public class CannonHopper extends SubsystemBase {
+public class CannonRammer extends SubsystemBase {
   /**
    * Creates a new Hopper.
    */
 
-  private WPI_TalonSRX m_leftcannonhoppermotor = new WPI_TalonSRX(Constants.CANNON_HOPPER_LEFT_MOTOR);
-  private WPI_TalonSRX m_rightcannonhoppermotor = new WPI_TalonSRX(Constants.CANNON_HOPPER_RIGHT_MOTOR);
+  private WPI_TalonSRX m_leftcannonrammermotor = new WPI_TalonSRX(Constants.CANNON_RAMMER_LEFT_MOTOR);
+  private WPI_TalonSRX m_rightcannonrammermotor = new WPI_TalonSRX(Constants.CANNON_RAMMER_RIGHT_MOTOR);
 
-  public CannonHopper() {
+  public CannonRammer() {
 
-    m_leftcannonhoppermotor.set(0);
-    m_rightcannonhoppermotor.set(0);
+    m_leftcannonrammermotor.set(0);
+    m_rightcannonrammermotor.set(0);
 
   }
   public int getSnowBlowerMotor(){
