@@ -8,20 +8,20 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Turntable;
+import frc.robot.subsystems.CannonPivotVertical;
 
-public class PositionTurntable extends CommandBase {
+public class PivotCannonVertical extends CommandBase {
 
   /**
-   * Creates a new PositionTurntable.
+   * Creates a new PivotCannonVertical.
    */
   private double m_pivotangle;
-  private Turntable m_turntable;
+  private CannonPivotVertical m_cannonpivotvertical;
 
-  public PositionTurntable(Turntable turntable, double pivotAngle) {
-    this.m_turntable = turntable;
+  public PivotCannonVertical(CannonPivotVertical cannonpivotvertical, double pivotAngle) {
+    this.m_cannonpivotvertical = cannonpivotvertical;
     this.m_pivotangle = pivotAngle;
-    addRequirements(m_turntable);
+    addRequirements(m_cannonpivotvertical);
   }
 
   // Called when the command is initially scheduled.
@@ -33,15 +33,15 @@ public class PositionTurntable extends CommandBase {
   @Override
   public void execute() {
     // if passing through home position, reset pivot degrees to 0
-    if (m_turntable.getHome()) {
-      m_turntable.resetTurntablePivotAngle();
+    if (m_cannonpivotvertical.getCannonPivotHome()) {
+      m_cannonpivotvertical.resetCannonPivotAngle();
     }
 
     // false means turn counterclockwise, true clockwise
     if (m_pivotangle > 0.0) {
-      m_turntable.pivotTurntable(true);
+      m_cannonpivotvertical.pivotCannon(true);
     } else if (m_pivotangle < 0.0) {
-      m_turntable.pivotTurntable(false);
+      m_cannonpivotvertical.pivotCannon(false);
     }
   }
 
@@ -54,9 +54,9 @@ public class PositionTurntable extends CommandBase {
   @Override
   public boolean isFinished() {
     //if angle to pivot to is greater than zero (clockwise) has the turntable pivoted to equal or greater than that angle
-    if (((m_turntable.getTurntablePivotAngle() >= m_pivotangle) && (m_pivotangle > 0))
+    if (((m_cannonpivotvertical.getCannonPivotAngle() >= m_pivotangle) && (m_pivotangle > 0))
      //if angle to pivot to is less than zero (counterclockwise) has the turntable pivoted to equal or greater than that angle
-     || (m_turntable.getTurntablePivotAngle() <= m_pivotangle) && (m_pivotangle < 0)) {
+     || (m_cannonpivotvertical.getCannonPivotAngle() <= m_pivotangle) && (m_pivotangle < 0)) {
       return true;
     } else {
       return false;

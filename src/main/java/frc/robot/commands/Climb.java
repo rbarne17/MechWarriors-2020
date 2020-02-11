@@ -9,11 +9,11 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class FeedPowerCells extends CommandBase {
+public class Climb extends CommandBase {
   /**
-   * Creates a new FeedPowerCells.
+   * Creates a new Pullup.
    */
-  public FeedPowerCells() {
+  public Climb() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
 

@@ -29,13 +29,13 @@ public final class Constants {
     public static final int FUELINTAKE_LEFT_MOTOR = 1;
     public static final int FUELINTAKE_RIGHT_MOTOR = 2;
     public static int TURNTABLE_MOTOR = 3;
-    public static final int SHOOTER_LEFT_MOTOR = 5;
-    public static final int SHOOTER_RIGHT_MOTOR = 6;
+    public static final int CANNON_BARREL_LEFT_MOTOR = 5;
+    public static final int CANNON_BARREL_RIGHT_MOTOR = 6;
 
-    public static final int HOPPER_LEFT_MOTOR = 7;
-    public static final int HOPPER_RIGHT_MOTOR = 8;
+    public static final int CANNON_HOPPER_LEFT_MOTOR = 7;
+    public static final int CANNON_HOPPER_RIGHT_MOTOR = 8;
     public static final int CLIMB_CLAW_MOTOR = 9;
-    public static final int FUEL_INTAKE_MOTOR = 10;
+    public static final int GROUND_LOADER_MOTOR = 10;
 
     // motor value constants
     public static final double TURNTABLE_MOTOR_SPEED = 0;
@@ -43,7 +43,7 @@ public final class Constants {
     // sensor value constants
 
     // sensor/motor translation constants
-    public static final double TURNTABLE_TICKS_PER_DEGREE = 0;
+    public static final double CANNON_PIVOT_VERTICAL_TICKS_PER_DEGREE = 0;
     public static final double SHOOTER_TICKS_PER_DEGREE = 0;
 
     // AUTONOMOUS PIVOT TURNTABLE MIDDLE
