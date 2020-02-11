@@ -11,40 +11,57 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
  
 public class PositionShooter extends CommandBase {
-  private static final double shooterDegree = 0;
+
   /**
-   * Creates a new PositionShooter.
+   * Creates a new PositionShooter
+   *.
    */
-  private double shooterTicks;
- 
-  public PositionShooter(double shooterDegree) { 
-    this.shooterTicks = shooterDegree * Constants.SHOOTER_TICKS_PER_DEGREE;
-    // Use addRequirements() here to declare subsystem dependencies.
+  private double m_pivotangle;
+  private Turntable m_turntable;
+
+  public PositionShooter
+(Shooter m_shooter, double pivotAngle) {
+    this.m_shooter = Shooter;
+    this.m_pivotangle = pivotAngle;
+    addRequirements(m_shooter);
   }
- 
-  public PositionShooter() {
-    // Use addRequirements() here to declare subsystem dependencies.
-  }
- 
+
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
   }
- 
+
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    // if passing through home position, reset pivot degrees to 0
+    if (m_shooter.getHome()) {
+      m_shooter.resetShooterPivotAngle();
+    }
+
+    // false means turn counterclockwise, true clockwise
+    if (m_pivotangle > 0.0) {
+      m_shooter.pivotShooter(true);
+    } else if (m_pivotangle < 0.0) {
+      m_shooter.pivotShooter(false);
+    }
   }
- 
+
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
   }
- 
+
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (shooterDegree <= 0.0 ){return true;} else {return false;}
- 
+    //if angle to pivot to is greater than zero (clockwise) has the turntable pivoted to equal or greater than that angle
+    if (((m_shooter.getShooterPivotAngle() >= m_pivotangle) && (m_pivotangle > 0))
+     //if angle to pivot to is less than zero (counterclockwise) has the turntable pivoted to equal or greater than that angle
+     || (m_shooter.getShooterPivotAngle() <= m_pivotangle) && (m_pivotangle < 0)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
