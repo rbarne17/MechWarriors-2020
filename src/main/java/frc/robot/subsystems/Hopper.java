@@ -25,9 +25,11 @@ public class Hopper extends SubsystemBase {
 
   }
   public int getSnowBlowerMotor(){
+    return 0;
 
   }
   public int getSrxEncoder(){
+    return 0;
 
   }
 //zero position switch

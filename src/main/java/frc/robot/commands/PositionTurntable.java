@@ -11,6 +11,9 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Turntable;
 
 public class PositionTurntable extends CommandBase {
+  //Not sure if the following line works ~Jay
+  private static final double turntableDegree = 0;
+
   /**
    * Creates a new PositionTurntable.
    */

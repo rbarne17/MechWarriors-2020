@@ -6,11 +6,19 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.subsystems;
+
 import frc.robot.Constants;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 public class Shooter extends SubsystemBase {
+  private static final WPI_TalonSRX shooterrightMotor = null;
+  private static final double CONSTANTS_SHOOTER_RIGHT_MOTOR_SPEED = 0;
+  private static final WPI_TalonSRX shooterleftMotor = null;
+  private static final double CONSTANTS_SHOOTER_LEFT_MOTOR_SPEED = 0;
   /**
    * Creates a new Shooter.
    */
@@ -21,8 +29,26 @@ public class Shooter extends SubsystemBase {
 
     leftShooterMotor.set(0);
     rightShooterMotor.set(0);
-
+    stopShooter();
+    leftShooterMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
+    rightShooterMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
   }
+  public void stopShooter(){
+  }
+  public void positionShooter(boolean direction){
+    if (direction)
+    shooterrightMotor.set(CONSTANTS_SHOOTER_RIGHT_MOTOR_SPEED);
+  } {
+    shooterleftMotor.set(CONSTANTS_SHOOTER_LEFT_MOTOR_SPEED);
+  };
+{
+  shooterleftMotor.set(CONSTANTS_SHOOTER_LEFT_MOTOR_SPEED);
+} {
+  shooterleftMotor.set(CONSTANTS_SHOOTER_LEFT_MOTOR_SPEED);
+  shooterleftMotor.set(CONSTANTS_SHOOTER_LEFT_MOTOR_SPEED);
+}
+
+  
 //Encoder will be used for speed 
 public int getMiniSims(){
   return 0;
