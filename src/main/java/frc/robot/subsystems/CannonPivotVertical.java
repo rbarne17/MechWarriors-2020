@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-public class Turntable extends SubsystemBase {
+public class CannonPivotVertical extends SubsystemBase {
   
   /**
    * Creates a new Turntable.
@@ -22,64 +22,64 @@ public class Turntable extends SubsystemBase {
 
   // CAN motor with built in encoder, plus limit switch connected to DIO (latter
   // might change to CAN connected limit switch) '
-  private WPI_TalonSRX turntableMotor = new WPI_TalonSRX(Constants.TURNTABLE_MOTOR);
-  private DigitalInput turntableLimitZero = new DigitalInput(Constants.TURNTABLE_LIMIT_ZERO);
+  private WPI_TalonSRX cannonPivotMotor = new WPI_TalonSRX(Constants.TURNTABLE_MOTOR);
+  private DigitalInput cannonPivotLimitZero = new DigitalInput(Constants.TURNTABLE_LIMIT_ZERO);
 
-  public Turntable() {
+  public CannonPivotVertical() {
     // when class instantiated (new Turntable...),
     // 1. stop motor
     // 2.set up CAN connected encoder
     stopTurntable();
-    turntableMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
+    cannonPivotMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
   }
 
-  public void pivotTurntable(boolean direction) {
+  public void pivotCannon(boolean direction) {
     // direction true, clockwise
     // direction false, counterclockwise
     if (direction) {
-      turntableMotor.set(Constants.TURNTABLE_MOTOR_SPEED);
+      cannonPivotMotor.set(Constants.TURNTABLE_MOTOR_SPEED);
     } else {
-      turntableMotor.set(-Constants.TURNTABLE_MOTOR_SPEED);
+      cannonPivotMotor.set(-Constants.TURNTABLE_MOTOR_SPEED);
     }
   }
 
-  public double getTurntablePivotAngle() {
-    return getTurntableEncoderValue() * Constants.TURNTABLE_TICKS_PER_DEGREE;
+  public double getCannonPivotAngle() {
+    return getTurntableEncoderValue() * Constants.CANNON_PIVOT_VERTICAL_TICKS_PER_DEGREE;
   }
 
-  public void resetTurntablePivotAngle() {
-    resetTurntableEncoder();
+  public void resetCannonPivotAngle() {
+    resetCannonPivotEncoder();
   }
 
   public void stopTurntable() {
-    turntableMotor.set(0.0);
+    cannonPivotMotor.set(0.0);
   }
 
-  public void setHome() {
-    while (!getHome()) {
-      // if turntable turned clockwise (> 0.0) turn counterclockwise (false)
-      // if turntable turned counterclockwise (< 0.0) turn clockwise (true)
-      if (getTurntablePivotAngle() > 0.0) {
-        pivotTurntable(false);
-      } else if (getTurntablePivotAngle() < 0.0) {
-        pivotTurntable(true);
+  public void setCannonPivotHome() {
+    while (!getCannonPivotHome()) {
+      // if cannon pivot turned clockwise (> 0.0) turn counterclockwise (false)
+      // if cannon pivot turned counterclockwise (< 0.0) turn clockwise (true)
+      if (getCannonPivotAngle() > 0.0) {
+        pivotCannon(false);
+      } else if (getCannonPivotAngle() < 0.0) {
+        pivotCannon(true);
       }
 
-      resetTurntablePivotAngle();
+      resetCannonPivotAngle();
 
     }
   }
 
-  public boolean getHome() {
-    return turntableLimitZero.get();
+  public boolean getCannonPivotHome() {
+    return cannonPivotLimitZero.get();
   }
 
-  private void resetTurntableEncoder() {
-    turntableMotor.setSelectedSensorPosition(0);
+  private void resetCannonPivotEncoder() {
+    cannonPivotMotor.setSelectedSensorPosition(0);
   }
 
   private int getTurntableEncoderValue() {
-    return turntableMotor.getSelectedSensorPosition();
+    return cannonPivotMotor.getSelectedSensorPosition();
   }
 
   @Override

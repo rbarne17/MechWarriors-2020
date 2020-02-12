@@ -9,11 +9,11 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class IntakePowerCell extends CommandBase {
+public class RamPowerCells extends CommandBase {
   /**
-   * Creates a new IntakePowerCell.
+   * Creates a new RamPowerCells.
    */
-  public IntakePowerCell() {
+  public RamPowerCells() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
 

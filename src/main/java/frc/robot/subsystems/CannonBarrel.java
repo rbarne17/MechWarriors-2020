@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-public class Shooter extends SubsystemBase {
+public class CannonBarrel extends SubsystemBase {
   private static final WPI_TalonSRX shooterrightMotor = null;
   private static final double CONSTANTS_SHOOTER_RIGHT_MOTOR_SPEED = 0;
   private static final WPI_TalonSRX shooterleftMotor = null;
@@ -22,16 +22,16 @@ public class Shooter extends SubsystemBase {
   /**
    * Creates a new Shooter.
    */
-  private WPI_TalonSRX leftShooterMotor = new WPI_TalonSRX(Constants.SHOOTER_LEFT_MOTOR);
-  private WPI_TalonSRX rightShooterMotor = new WPI_TalonSRX(Constants.SHOOTER_RIGHT_MOTOR);
+  private WPI_TalonSRX leftCannonBarrelMotor = new WPI_TalonSRX(Constants.CANNON_BARREL_LEFT_MOTOR);
+  private WPI_TalonSRX rightCannonBarrelMotor = new WPI_TalonSRX(Constants.CANNON_BARREL_RIGHT_MOTOR);
 
-  public Shooter() {
+  public CannonBarrel() {
 
-    leftShooterMotor.set(0);
-    rightShooterMotor.set(0);
+    leftCannonBarrelMotor.set(0);
+    rightCannonBarrelMotor.set(0);
     stopShooter();
-    leftShooterMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
-    rightShooterMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
+    leftCannonBarrelMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
+    rightCannonBarrelMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
   }
   public void stopShooter(){
   }

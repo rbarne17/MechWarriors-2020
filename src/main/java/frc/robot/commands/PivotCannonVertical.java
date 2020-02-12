@@ -4,26 +4,24 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
- 
+
 package frc.robot.commands;
- 
+
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.Constants;
- 
-public class PositionShooter extends CommandBase {
+import frc.robot.subsystems.CannonPivotVertical;
+
+public class PivotCannonVertical extends CommandBase {
 
   /**
-   * Creates a new PositionShooter
-   *.
+   * Creates a new PivotCannonVertical.
    */
   private double m_pivotangle;
-  private Turntable m_turntable;
+  private CannonPivotVertical m_cannonpivotvertical;
 
-  public PositionShooter
-(Shooter m_shooter, double pivotAngle) {
-    this.m_shooter = Shooter;
+  public PivotCannonVertical(CannonPivotVertical cannonpivotvertical, double pivotAngle) {
+    this.m_cannonpivotvertical = cannonpivotvertical;
     this.m_pivotangle = pivotAngle;
-    addRequirements(m_shooter);
+    addRequirements(m_cannonpivotvertical);
   }
 
   // Called when the command is initially scheduled.
@@ -35,15 +33,15 @@ public class PositionShooter extends CommandBase {
   @Override
   public void execute() {
     // if passing through home position, reset pivot degrees to 0
-    if (m_shooter.getHome()) {
-      m_shooter.resetShooterPivotAngle();
+    if (m_cannonpivotvertical.getCannonPivotHome()) {
+      m_cannonpivotvertical.resetCannonPivotAngle();
     }
 
     // false means turn counterclockwise, true clockwise
     if (m_pivotangle > 0.0) {
-      m_shooter.pivotShooter(true);
+      m_cannonpivotvertical.pivotCannon(true);
     } else if (m_pivotangle < 0.0) {
-      m_shooter.pivotShooter(false);
+      m_cannonpivotvertical.pivotCannon(false);
     }
   }
 
@@ -56,9 +54,9 @@ public class PositionShooter extends CommandBase {
   @Override
   public boolean isFinished() {
     //if angle to pivot to is greater than zero (clockwise) has the turntable pivoted to equal or greater than that angle
-    if (((m_shooter.getShooterPivotAngle() >= m_pivotangle) && (m_pivotangle > 0))
+    if (((m_cannonpivotvertical.getCannonPivotAngle() >= m_pivotangle) && (m_pivotangle > 0))
      //if angle to pivot to is less than zero (counterclockwise) has the turntable pivoted to equal or greater than that angle
-     || (m_shooter.getShooterPivotAngle() <= m_pivotangle) && (m_pivotangle < 0)) {
+     || (m_cannonpivotvertical.getCannonPivotAngle() <= m_pivotangle) && (m_pivotangle < 0)) {
       return true;
     } else {
       return false;
