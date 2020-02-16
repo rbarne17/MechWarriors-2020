@@ -13,6 +13,8 @@ public class LoadPowerCellsGround extends CommandBase {
   /**
    * Creates a new IntakePowerCell.
    */
+  // TODO: create constructor with at least the necessary subsystem(s)
+  // TODO: place subsystem in addRequirements()
   public LoadPowerCellsGround() {
     // Use addRequirements() here to declare subsystem dependencies.
   }

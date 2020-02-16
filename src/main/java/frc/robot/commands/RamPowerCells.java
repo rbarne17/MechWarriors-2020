@@ -13,6 +13,8 @@ public class RamPowerCells extends CommandBase {
   /**
    * Creates a new RamPowerCells.
    */
+  // TODO: create constructor with at least the necessary subsystem(s)
+  // TODO: place subsystem in addRequirements()
   public RamPowerCells() {
     // Use addRequirements() here to declare subsystem dependencies.
   }

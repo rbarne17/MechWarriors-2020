@@ -13,7 +13,8 @@ public class Drive extends CommandBase {
   /**
    * Creates a new Drive.
    */
-  // TODO: create constructor with at least the necessary subsystem
+  // TODO: create constructor with at least the necessary subsystem(s)
+  // TODO: place subsystem in addRequirements()
   public Drive() {
     // Use addRequirements() here to declare subsystem dependencies.
   }

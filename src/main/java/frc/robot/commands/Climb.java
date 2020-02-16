@@ -13,6 +13,8 @@ public class Climb extends CommandBase {
   /**
    * Creates a new Pullup.
    */
+  // TODO: create constructor with at least the necessary subsystem(s)
+  // TODO: place subsystem in addRequirements()
   public Climb() {
     // Use addRequirements() here to declare subsystem dependencies.
   }

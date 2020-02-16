@@ -9,11 +9,13 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class ShootPowerCell extends CommandBase {
+public class LoadPowerCellsRammer extends CommandBase {
   /**
-   * Creates a new ShootPowerCell.
+   * Creates a new LoadPowerCellsRammer.
    */
-  public ShootPowerCell() {
+  // TODO: create constructor with at least the necessary subsystem(s)
+  // TODO: place subsystem in addRequirements()
+  public LoadPowerCellsRammer() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
 

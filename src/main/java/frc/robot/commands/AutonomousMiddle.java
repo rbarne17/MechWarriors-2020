@@ -18,17 +18,9 @@ public class AutonomousMiddle extends SequentialCommandGroup {
    * Creates a new AutonomousMiddle.
    */
   public AutonomousMiddle(DriveTrain driveTrain) {
-    // Add your commands in the super() call, e.g.
+    // TODO: Add more commands in the super() call, e.g.
     // super(new FooCommand(), new BarCommand());
-    super();
-    
-    addCommands(
-      new Drive()
-      // new
-      // new
-      // new
+    super(new Drive());
 
-    );
-     
   }
 }

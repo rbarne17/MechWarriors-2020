@@ -45,6 +45,8 @@ public final class Constants {
     // sensor/motor translation constants
     public static final double CANNON_PIVOT_VERTICAL_TICKS_PER_DEGREE = 0;
     public static final double SHOOTER_TICKS_PER_DEGREE = 0;
+	public static final double CANNON_BARREL_SPEED = 0.0;
+	public static final double CANNON_BARREL_FEEDER_SPEED = 0;
 
     // AUTONOMOUS PIVOT TURNTABLE MIDDLE
     // AUTONOMOUS PIVOT TURNTABLE RIGHT

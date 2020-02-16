@@ -16,8 +16,11 @@ public class LoadPowerCells extends ParallelCommandGroup {
   /**
    * Creates a new LoadPowerCells.
    */
+  // TODO: create constructor with at least the necessary subsystem(s)
+  // TODO: place subsystem in addRequirements()
   public LoadPowerCells() {
-    // TODO: Add your commands in the super() call, e.g.
+    // TODO: Add LoadPowerCellsGround, LoadPowerCellsCannon in the super() call,
+    // e.g.
     // super(new FooCommand(), new BarCommand());super();
   }
 }

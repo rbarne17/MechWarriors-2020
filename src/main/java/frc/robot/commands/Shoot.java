@@ -12,14 +12,13 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html
-public class AutonomousLeft extends SequentialCommandGroup {
+public class Shoot extends SequentialCommandGroup {
   /**
-   * Creates a new AutonomousLeft.
+   * Creates a new Shoot.
    */
   // TODO: create constructor with at least the necessary subsystem(s)
-  public AutonomousLeft() {
-    // Add your commands in the super() call, e.g.
-    // super(new FooCommand(), new BarCommand());
-    super();
+  public Shoot() {
+    // TODO: Add ShootPowerCell in the super() call, e.g.
+    // super(new FooCommand(), new BarCommand());super();
   }
 }

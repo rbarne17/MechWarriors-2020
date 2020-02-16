@@ -9,13 +9,13 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class DriveWithController extends CommandBase {
+public class PivotCannonVerticalWithController extends CommandBase {
   /**
-   * Creates a new DriveWithController.
+   * Creates a new PivotCannonVerticalWithController.
    */
   // TODO: create constructor with at least the necessary subsystem(s)
   // TODO: place subsystem in addRequirements()
-  public DriveWithController() {
+  public PivotCannonVerticalWithController() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
