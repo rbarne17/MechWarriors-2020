@@ -9,11 +9,11 @@ package frc.robot.commands;
  
 import edu.wpi.first.wpilibj2.command.CommandBase;
  
-public class PositionCannonBarrel extends CommandBase {
-  public PositionCannonBarrel(double shooterDegree) {
+public class PivotCannon extends CommandBase {
+  public PivotCannon(double shooterDegree) {
   }
 
-  public PositionCannonBarrel() {
+  public PivotCannon() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
  
