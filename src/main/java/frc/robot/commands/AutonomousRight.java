@@ -17,8 +17,7 @@ public class AutonomousRight extends SequentialCommandGroup {
    * Creates a new AutonomousRight.
    */
   public AutonomousRight() {
-    // TODO:Add your commands in the super() call, e.g.
-    // super(new FooCommand(), new BarCommand());
+    // TODO: Add commands that make up AutonomousRight in the super() call,  super(new FooCommand(), new BarCommand());
     super();
   }
 }

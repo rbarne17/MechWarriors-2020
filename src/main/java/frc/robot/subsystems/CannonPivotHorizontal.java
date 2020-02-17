@@ -22,8 +22,8 @@ public class CannonPivotHorizontal extends SubsystemBase {
 
   // CAN motor with built in encoder, plus limit switch connected to DIO (latter
   // might change to CAN connected limit switch) '
-  private WPI_TalonSRX cannonpivotMotor = new WPI_TalonSRX(Constants.TURNTABLE_MOTOR);
-  private DigitalInput cannonpivotLimitZero = new DigitalInput(Constants.TURNTABLE_LIMIT_ZERO);
+  private WPI_TalonSRX cannonpivotMotor = new WPI_TalonSRX(Constants.CANNON_PIVOT_HORIZONTAL_MOTOR);
+  private DigitalInput cannonpivotLimitZero = new DigitalInput(Constants.CANNON_PIVOT_HORIZONTAL_LIMIT_ZERO);
 
   public CannonPivotHorizontal() {
     // when class instantiated (new CannonPivot...),
@@ -37,9 +37,9 @@ public class CannonPivotHorizontal extends SubsystemBase {
     // direction true, clockwise
     // direction false, counterclockwise
     if (direction) {
-      cannonpivotMotor.set(Constants.TURNTABLE_MOTOR_SPEED);
+      cannonpivotMotor.set(Constants.CANNON_PIVOT_HORIZONTAL_SPEED);
     } else {
-      cannonpivotMotor.set(-Constants.TURNTABLE_MOTOR_SPEED);
+      cannonpivotMotor.set(-Constants.CANNON_PIVOT_HORIZONTAL_SPEED);
     }
   }
 

@@ -8,15 +8,18 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.CannonRammer;
 
 public class LoadPowerCellsRammer extends CommandBase {
   /**
    * Creates a new LoadPowerCellsRammer.
    */
-  // TODO: create constructor with at least the necessary subsystem(s)
-  // TODO: place subsystem in addRequirements()
-  public LoadPowerCellsRammer() {
+  private CannonRammer m_cannonRammer;
+
+  public LoadPowerCellsRammer(CannonRammer cannonRammer) {
     // Use addRequirements() here to declare subsystem dependencies.
+    m_cannonRammer = cannonRammer;
+    addRequirements(m_cannonRammer);
   }
 
   // Called when the command is initially scheduled.
@@ -27,6 +30,7 @@ public class LoadPowerCellsRammer extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    m_cannonRammer.setHome();
   }
 
   // Called once the command ends or is interrupted.
@@ -37,6 +41,6 @@ public class LoadPowerCellsRammer extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return m_cannonRammer.getHome();
   }
 }

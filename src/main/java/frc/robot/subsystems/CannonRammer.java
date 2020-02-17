@@ -6,33 +6,54 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.subsystems;
+
 import frc.robot.Constants;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 public class CannonRammer extends SubsystemBase {
   /**
-   * Creates a new Hopper.
+   * Creates a new CannonRammer.
    */
 
-  private WPI_TalonSRX m_leftcannonrammermotor = new WPI_TalonSRX(Constants.CANNON_RAMMER_LEFT_MOTOR);
-  private WPI_TalonSRX m_rightcannonrammermotor = new WPI_TalonSRX(Constants.CANNON_RAMMER_RIGHT_MOTOR);
+  private WPI_TalonSRX m_cannonrammermotor = new WPI_TalonSRX(Constants.CANNON_RAMMER_MOTOR);
+  //TODO: add break beam sensor declaration
+  //TODO: add limit switch declaration
 
   public CannonRammer() {
 
-    m_leftcannonrammermotor.set(0);
-    m_rightcannonrammermotor.set(0);
+    setHome();
 
   }
-  public int getSnowBlowerMotor(){
-    return 0;
 
+  public void setHome() {
+    while (!getHome()) {
+      setCannonRammer(-Constants.CANNON_RAMMER_SPEED);
+    }
+    stopCannonRammer();
   }
-  public int getSrxEncoder(){
-    return 0;
 
+  public boolean getHome() {
+    // TODO: add limit switch code
+    return false;
   }
-//zero position switch
+
+  public void setCannonRammerRam(){
+  setCannonRammer(Constants.CANNON_RAMMER_SPEED);
+  }
+  
+  private void stopCannonRammer() {
+    setCannonRammer(0.0);
+  }
+
+  private void setCannonRammer(double rammerSpeed) {
+    m_cannonrammermotor.set(rammerSpeed);
+  }
+
+  public boolean getPowerCellsReadyToShoot(){
+    //TODO: if beam broken, true; else false
+    return true;
+  }
 
   @Override
   public void periodic() {

@@ -15,6 +15,8 @@ public class Drive extends CommandBase {
    */
   // TODO: create constructor with at least the necessary subsystem(s)
   // TODO: place subsystem in addRequirements()
+  // TODO: build this out similar to Drive in
+  // https://github.com/rbarne17/MechWarriors-2018/blob/master/src/main/java/org/usfirst/frc/team4764/robot/commands/Drive.java.
   public Drive() {
     // Use addRequirements() here to declare subsystem dependencies.
   }

@@ -23,54 +23,29 @@ public class GroundLoader extends SubsystemBase {
    * get means use encoder and set means use LIFT_MOTOR
    */
 
-  private WPI_TalonSRX m_groundloadermotor = new WPI_TalonSRX(Constants.GROUND_LOADER_MOTOR);
+  private WPI_TalonSRX m_groundLoaderMotor = new WPI_TalonSRX(Constants.GROUND_LOADER_MOTOR);
 
   public GroundLoader() {
-    m_groundloadermotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
     stopGroundLoader();
   }
 
-  /*
-  public void initDefaultCommand() {
-    setDefaultCommand(new FuelIntakeWithController());
-  }
-*/
-  public int getGroundLoaderEncoder() {
-    return m_groundloadermotor.getSelectedSensorPosition();
+  public void setGroundLoaderLoad() {
+    setGroundLoaderMotor(Constants.GROUND_LOADER_SPEED);
   }
 
-  public boolean getGroundLoaderLimitSwitchLow() {
-    return m_groundloadermotor.getSensorCollection().isRevLimitSwitchClosed();
-  }
-
-  public boolean getGroundLoaderLimitSwitchHigh() {
-    return m_groundloadermotor.getSensorCollection().isFwdLimitSwitchClosed();
-  }
-
-  public void setGroundLoaderDirection(double loadSpeed, int loadTarget) {
-    if (getGroundLoaderEncoder() < loadTarget) {
-      setGroundLoaderUp(loadSpeed);
-    } 
-    else {
-      setGroundLoaderDown(loadSpeed);
-    }
-  }
-
-  public void setGroundLoaderUp(double loadSpeed) {
-    m_groundloadermotor.set(loadSpeed);
-  }
-
-  public void setGroundLoaderDown(double loadSpeed) {
-    m_groundloadermotor.set(-loadSpeed);
-  }
-
-  public void resetGroundLoaderEncoder() {
-    m_groundloadermotor.setSelectedSensorPosition(0);
+  public void setGroundLoaderUnLoad() {
+    setGroundLoaderMotor(-Constants.GROUND_LOADER_SPEED);
   }
 
   public void stopGroundLoader() {
-    m_groundloadermotor.set(0.0);
+    setGroundLoaderMotor(0.0);
   }
+
+  private void setGroundLoaderMotor(double loadSpeed)
+  {
+    m_groundLoaderMotor.set(loadSpeed);
+  }
+  
   @Override
   public void periodic() {
     

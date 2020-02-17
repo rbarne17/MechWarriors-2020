@@ -37,10 +37,10 @@ public class PivotCannonHorizontal extends CommandBase {
       m_cannonpivothorizontal.resetCannonPivotAngle();
     }
 
-    // false means turn counterclockwise, true clockwise
-    if (m_pivotangle > 0.0) {
+    // true means turn clockwise, false counterclockwise
+    if (m_pivotangle > m_cannonpivothorizontal.getCannonPivotAngle()) {
       m_cannonpivothorizontal.pivotCannon(true);
-    } else if (m_pivotangle < 0.0) {
+    } else if (m_pivotangle < m_cannonpivothorizontal.getCannonPivotAngle()) {
       m_cannonpivothorizontal.pivotCannon(false);
     }
   }

@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot;
+package frc.robot.vision;
 
 import org.opencv.core.Rect;
 import org.opencv.imgproc.Imgproc;

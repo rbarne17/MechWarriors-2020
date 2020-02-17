@@ -19,8 +19,8 @@ public class CannonBarrel extends SubsystemBase {
    */
   private WPI_TalonSRX leftCannonBarrelMotor = new WPI_TalonSRX(Constants.CANNON_BARREL_LEFT_MOTOR);
   private WPI_TalonSRX rightCannonBarrelMotor = new WPI_TalonSRX(Constants.CANNON_BARREL_RIGHT_MOTOR);
-
   // TODO: create motor declarations for the CannonBarrel feed wheels
+
   public CannonBarrel() {
 
     stopCannonBarrel();
@@ -41,9 +41,8 @@ public class CannonBarrel extends SubsystemBase {
 
   }
 
-  public void loadCannonBarrelForShooting(double speed) {
-    // TODO: set motors for the CannonBarrel feed wheels for shooting
-
+  public void loadCannonBarrelForShooting(double feederSpeed) {
+    setCannonBarrelFeeder(feederSpeed);
   }
 
   private void setCannonBarrel(double speed) {
@@ -51,7 +50,8 @@ public class CannonBarrel extends SubsystemBase {
     rightCannonBarrelMotor.set(speed);
   }
 
-  private void setCannonBarrelFeeder(double speed) {
+  private void setCannonBarrelFeeder(double feederSpeed) {
+    // TODO: add code to set feeder motors once we know what the motors will be
   }
 
   public void shootCannonBarrel() {
@@ -63,15 +63,22 @@ public class CannonBarrel extends SubsystemBase {
   }
 
   public boolean getCannonBarrelReadyToShoot() {
-    return false;
+    if ((getLeftEncoderSpeed() >= Constants.CANNON_BARREL_SPEED)
+        && (getRightEncoderSpeed() >= Constants.CANNON_BARREL_SPEED)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
-  private int getLeftEncoderSpeed() {
+  private double getLeftEncoderSpeed() {
+    // TODO: figure out how encoders will tell us what speed
     return 0;
 
   }
 
-  private int getRightEncoderSpeed() {
+  private double getRightEncoderSpeed() {
+    // TODO: figure out how encoders will tell us what speed
     return 0;
 
   }

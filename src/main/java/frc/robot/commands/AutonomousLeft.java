@@ -18,8 +18,7 @@ public class AutonomousLeft extends SequentialCommandGroup {
    */
   // TODO: create constructor with at least the necessary subsystem(s)
   public AutonomousLeft() {
-    // Add your commands in the super() call, e.g.
-    // super(new FooCommand(), new BarCommand());
+    // TODO: Add commands that make up AutonomousLeft in the super() call,  super(new FooCommand(), new BarCommand());
     super();
   }
 }

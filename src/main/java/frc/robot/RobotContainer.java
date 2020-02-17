@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.AutonomousMiddle;
+import frc.robot.commands.DriveWithController;
 import frc.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj2.command.Command;
 
@@ -35,6 +36,8 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
+
+    m_driveTrain.setDefaultCommand(new DriveWithController());
   }
 
   /**
@@ -46,6 +49,12 @@ public class RobotContainer {
   private void configureButtonBindings() {
 
     // TODO: work with Miles to get what buttons he wants to use for what commands
+    // TODO: what button/stick will Shoot()
+    // TODO: what button/stick will LoadPowerCells()
+    // TODO: what button/stick will PivotCannonHorizontal()
+    // TODO: what button/stick will PivotCannonVertical()
+    // TODO: what button/stick will trigger Climb()
+
   }
 
   /**

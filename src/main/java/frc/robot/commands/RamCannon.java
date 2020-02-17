@@ -8,15 +8,18 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.CannonRammer;
 
-public class RamPowerCells extends CommandBase {
+public class RamCannon extends CommandBase {
   /**
    * Creates a new RamPowerCells.
    */
-  // TODO: create constructor with at least the necessary subsystem(s)
-  // TODO: place subsystem in addRequirements()
-  public RamPowerCells() {
-    // Use addRequirements() here to declare subsystem dependencies.
+
+  private CannonRammer m_cannonRammer;
+
+  public RamCannon(CannonRammer cannonRammer) {
+    m_cannonRammer = cannonRammer;
+    addRequirements(m_cannonRammer);
   }
 
   // Called when the command is initially scheduled.
@@ -27,6 +30,9 @@ public class RamPowerCells extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    if (!m_cannonRammer.getPowerCellsReadyToShoot()) {
+      m_cannonRammer.setCannonRammerRam();
+    }
   }
 
   // Called once the command ends or is interrupted.
