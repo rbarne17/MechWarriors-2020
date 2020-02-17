@@ -17,10 +17,19 @@ public class PivotCannon extends ParallelCommandGroup {
    * Creates a new PivotCannon.
    */
   // TODO: create constructor with at least the necessary subsystem(s)
+  public CannonPivotHorizontal() {
+    //FINISH THIS OFF
+  }
+  public CannonPivotVertical() {
+    //FINISH THIS OFF
+  }
   // TODO: place subsystem in addRequirements()
   public PivotCannon() {
     // TODO: Add PivotCannonHorizontal, PivotCannonVerticals in the super() call,
     // e.g.
     // super(new FooCommand(), new BarCommand());super();
+    super(new PivotCannonHorizontal(), new PivotCannonVertical()); 
+    super();
+    
   }
 }

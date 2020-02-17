@@ -40,8 +40,7 @@ public class GroundLoader extends SubsystemBase {
     setGroundLoaderMotor(0.0);
   }
 
-  private void setGroundLoaderMotor(double loadSpeed)
-  {
+  private void setGroundLoaderMotor(double loadSpeed) {
     m_groundLoaderMotor.set(loadSpeed);
   }
   

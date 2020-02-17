@@ -14,6 +14,9 @@ public class PivotCannonHorizontalWithController extends CommandBase {
    * Creates a new PivotCannonHorizontalWithController.
    */
   // TODO: create constructor with at least the necessary subsystem(s)
+  public CannonPivotVertical() {
+    //FINISH THIS OFF
+  }
   // TODO: place subsystem in addRequirements()
   public PivotCannonHorizontalWithController() {
     // Use addRequirements() here to declare subsystem dependencies.

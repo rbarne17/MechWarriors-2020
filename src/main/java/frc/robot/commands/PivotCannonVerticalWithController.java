@@ -14,6 +14,9 @@ public class PivotCannonVerticalWithController extends CommandBase {
    * Creates a new PivotCannonVerticalWithController.
    */
   // TODO: create constructor with at least the necessary subsystem(s)
+  public CannonPivotVertical() {
+    //FINISH THIS OFF
+  }
   // TODO: place subsystem in addRequirements()
   public PivotCannonVerticalWithController() {
     // Use addRequirements() here to declare subsystem dependencies.
@@ -28,7 +31,7 @@ public class PivotCannonVerticalWithController extends CommandBase {
   @Override
   public void execute() {
   }
-
+  
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {

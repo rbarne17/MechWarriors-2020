@@ -12,8 +12,13 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+//THE ERRORS MAY BE AN IMPORT ISSUE?
+import com.ctre.phoenix.motorcontrol.can.*;
+/*import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.drive.*;*/
 
 public class CannonBarrel extends SubsystemBase {
+  private static final String FeedbackDevice = null;
   /**
    * Creates a new CannonBarrel.
    */
@@ -29,10 +34,13 @@ public class CannonBarrel extends SubsystemBase {
   }
 
   public void stopCannonBarrel() {
+
     leftCannonBarrelMotor.set(0);
     rightCannonBarrelMotor.set(0);
-    // TODO: reset motors for the CannonBarrel feed wheels
 
+    // TODO: reset motors for the CannonBarrel feed wheels
+    leftCannonBarrelMotor.reset(0);
+    rightCannonBarrelMotor.reset(0);
   }
 
   public void loadCannonBarrelForStorage(double barrelSpeed, double feederSpeed) {
