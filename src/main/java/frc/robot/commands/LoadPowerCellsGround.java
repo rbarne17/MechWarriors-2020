@@ -8,15 +8,18 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.GroundLoader;
 
 public class LoadPowerCellsGround extends CommandBase {
   /**
    * Creates a new IntakePowerCell.
    */
-  // TODO: create constructor with at least the necessary subsystem(s)
-  // TODO: place subsystem in addRequirements()
-  public LoadPowerCellsGround() {
-    // Use addRequirements() here to declare subsystem dependencies.
+
+  private GroundLoader m_GroundLoader;
+
+  public LoadPowerCellsGround(GroundLoader groundLoader) {
+    m_GroundLoader = groundLoader;
+    addRequirements(m_GroundLoader);
   }
 
   // Called when the command is initially scheduled.

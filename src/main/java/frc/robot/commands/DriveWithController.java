@@ -8,6 +8,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.DriveTrain;
 
 // TODO: see https://github.com/wpilibsuite/Gearsbot/blob/master/src/main/java/frc/robot/commands/TeleopDriveCommand.java and https://github.com/rbarne17/MechWarriors-2018/blob/master/src/main/java/org/usfirst/frc/team4764/robot/commands/DriveWithController.java for good example how to build this
 
@@ -16,11 +17,11 @@ public class DriveWithController extends CommandBase {
    * Creates a new DriveWithController.
    */
 
-  // TODO: create constructor with at least the necessary subsystem(s)
-  // TODO: place subsystem in addRequirements()
-  
-  public DriveWithController() {
-    // Use addRequirements() here to declare subsystem dependencies.
+  private DriveTrain m_DriveTrain;
+
+  public DriveWithController(DriveTrain driveTrain) {
+    m_DriveTrain = driveTrain;
+    addRequirements(m_DriveTrain);
   }
 
   // Called when the command is initially scheduled.

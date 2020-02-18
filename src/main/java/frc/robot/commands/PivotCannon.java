@@ -8,6 +8,8 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
+import frc.robot.subsystems.CannonPivotHorizontal;
+import frc.robot.subsystems.CannonPivotVertical;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
@@ -16,20 +18,10 @@ public class PivotCannon extends ParallelCommandGroup {
   /**
    * Creates a new PivotCannon.
    */
-  // TODO: create constructor with at least the necessary subsystem(s)
-  public CannonPivotHorizontal() {
-    //FINISH THIS OFF
-  }
-  public CannonPivotVertical() {
-    //FINISH THIS OFF
-  }
-  // TODO: place subsystem in addRequirements()
-  public PivotCannon() {
-    // TODO: Add PivotCannonHorizontal, PivotCannonVerticals in the super() call,
-    // e.g.
-    // super(new FooCommand(), new BarCommand());super();
-    super(new PivotCannonHorizontal(), new PivotCannonVertical()); 
-    super();
-    
+  public PivotCannon(CannonPivotHorizontal cannonPivotHorizontal, CannonPivotVertical cannonPivotVertical,
+      double horizontalAngle, double verticalAngle) {
+
+    super(new PivotCannonHorizontal(cannonPivotHorizontal, horizontalAngle),
+        new PivotCannonVertical(cannonPivotVertical, verticalAngle));
   }
 }

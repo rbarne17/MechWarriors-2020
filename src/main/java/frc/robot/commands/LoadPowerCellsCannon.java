@@ -8,15 +8,18 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.CannonBarrel;
 
 public class LoadPowerCellsCannon extends CommandBase {
   /**
    * Creates a new IntakePowerCell.
    */
-  // TODO: create constructor with at least the necessary subsystem(s)
-  // TODO: place subsystem in addRequirements()
-  public LoadPowerCellsCannon() {
-    // Use addRequirements() here to declare subsystem dependencies.
+
+  private CannonBarrel m_cannonBarrel;
+  //MAYBE GIVE A SPEED(?)
+  public LoadPowerCellsCannon(CannonBarrel cannonBarrel) {
+    m_cannonBarrel = cannonBarrel;
+    addRequirements(m_cannonBarrel);
   }
 
   // Called when the command is initially scheduled.

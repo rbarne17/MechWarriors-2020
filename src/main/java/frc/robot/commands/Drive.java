@@ -8,6 +8,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.DriveTrain;
 
 public class Drive extends CommandBase {
   /**
@@ -17,8 +18,12 @@ public class Drive extends CommandBase {
   // TODO: place subsystem in addRequirements()
   // TODO: build this out similar to Drive in
   // https://github.com/rbarne17/MechWarriors-2018/blob/master/src/main/java/org/usfirst/frc/team4764/robot/commands/Drive.java.
-  public Drive() {
+  private DriveTrain m_DriveTrain;
+
+  public Drive(DriveTrain driveTrain) {
     // Use addRequirements() here to declare subsystem dependencies.
+    m_DriveTrain = driveTrain;
+    addRequirements(m_DriveTrain);
   }
 
   // Called when the command is initially scheduled.

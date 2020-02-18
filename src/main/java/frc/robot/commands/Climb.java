@@ -8,15 +8,18 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.ClimbClaw;
 
 public class Climb extends CommandBase {
   /**
    * Creates a new Pullup.
    */
-  // TODO: create constructor with at least the necessary subsystem(s)
-  // TODO: place subsystem in addRequirements()
-  public Climb() {
-    // Use addRequirements() here to declare subsystem dependencies.
+
+  private ClimbClaw m_ClimbClaw;
+
+  public Climb(ClimbClaw climbClaw) {
+    m_ClimbClaw = climbClaw;
+    addRequirements(m_ClimbClaw);
   }
 
   // Called when the command is initially scheduled.

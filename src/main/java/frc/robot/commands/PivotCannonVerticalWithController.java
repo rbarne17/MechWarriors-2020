@@ -8,18 +8,19 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.CannonPivotVertical;
 
 public class PivotCannonVerticalWithController extends CommandBase {
   /**
    * Creates a new PivotCannonVerticalWithController.
    */
-  // TODO: create constructor with at least the necessary subsystem(s)
-  public CannonPivotVertical() {
-    //FINISH THIS OFF
-  }
-  // TODO: place subsystem in addRequirements()
-  public PivotCannonVerticalWithController() {
+  
+  private CannonPivotVertical m_CannonPivotVertical;
+
+  public PivotCannonVerticalWithController(CannonPivotVertical cannonPivotVertical) {
     // Use addRequirements() here to declare subsystem dependencies.
+    m_CannonPivotVertical = cannonPivotVertical;
+    addRequirements(m_CannonPivotVertical);
   }
 
   // Called when the command is initially scheduled.
