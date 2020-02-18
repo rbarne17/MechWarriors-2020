@@ -37,7 +37,7 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
 
-    m_driveTrain.setDefaultCommand(new DriveWithController());
+    m_driveTrain.setDefaultCommand(new DriveWithController(m_driveTrain));
   }
 
   /**

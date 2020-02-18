@@ -8,7 +8,6 @@
 package frc.robot.subsystems;
 
 import frc.robot.Constants;
-import frc.robot.commands.DriveWithController;
 
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
@@ -33,7 +32,6 @@ public class DriveTrain extends SubsystemBase {
   //COME BACK TO THIS for PERIODIC (using)
   //
   public void driveTrain(){
-    setDefaultCommand(new DriveWithController());
   }
 
   public void driveByTank(double LeftpercentThrottle, double RightpercentThrottle){

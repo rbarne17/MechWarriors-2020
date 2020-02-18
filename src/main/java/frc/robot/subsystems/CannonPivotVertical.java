@@ -39,7 +39,7 @@ public class CannonPivotVertical extends SubsystemBase {
     if (direction) {
       cannonPivotMotor.set(Constants.CANNON_PIVOT_VERTICAL_SPEED);
     } else {
-      CannonPivotVertical.set(-Constants.CANNON_PIVOT_VERTICAL_SPEED);
+      cannonPivotMotor.set(-Constants.CANNON_PIVOT_VERTICAL_SPEED);
     }
   }
 
