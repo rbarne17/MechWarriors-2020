@@ -56,6 +56,10 @@ public final class Constants {
 	public static final int GROUND_LOADER_SPEED = 0;
 	public static final double CANNON_PIVOT_HORIZONTAL_AUTONOMOUS_LEFT_ANGLE = 0;
 	public static final double CANNON_PIVOT_VERTICAL_AUTONOMOUS_LEFT_ANGLE = 0;
+	public static final double DRIVE_AUTONOMOUS_SHOOTING_DISTANCE = 0;
+	public static final double DRIVE_AUTONOMOUS_CROSS_LINE_DISTANCE = 0;
+	public static final double CANNON_PIVOT_HORIZONTAL_AUTONOMOUS_MIDDLE_ANGLE = 0;
+	public static final double CANNON_PIVOT_VERTICAL_AUTONOMOUS_MIDDLE_ANGLE = 0;
 
     // AUTONOMOUS PIVOT TURNTABLE MIDDLE
     // AUTONOMOUS PIVOT TURNTABLE RIGHT

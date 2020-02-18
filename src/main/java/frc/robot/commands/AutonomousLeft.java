@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.Constants;
 import frc.robot.subsystems.CannonPivotHorizontal;
 import frc.robot.subsystems.CannonPivotVertical;
+import frc.robot.subsystems.DriveTrain;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
@@ -19,10 +20,13 @@ public class AutonomousLeft extends SequentialCommandGroup {
   /**
    * Creates a new AutonomousLeft.
    */
-  // TODO: create constructor with at least the necessary subsystem(s)
-  public AutonomousLeft(CannonPivotHorizontal cannonPivotHorizontal, CannonPivotVertical cannonPivotVertical) {
-    // TODO: Add commands that make up AutonomousLeft in the super() call,  super(new FooCommand(), new BarCommand());
+  public AutonomousLeft(DriveTrain driveTrain, CannonPivotHorizontal cannonPivotHorizontal,
+      CannonPivotVertical cannonPivotVertical) {
 
-    super(new PivotCannon (cannonPivotHorizontal, cannonPivotVertical, Constants.CANNON_PIVOT_HORIZONTAL_AUTONOMOUS_LEFT_ANGLE, Constants.CANNON_PIVOT_VERTICAL_AUTONOMOUS_LEFT_ANGLE));
+    super(
+        new PrepareCannonForShooting(driveTrain, cannonPivotHorizontal, cannonPivotVertical,
+            Constants.CANNON_PIVOT_HORIZONTAL_AUTONOMOUS_LEFT_ANGLE,
+            Constants.CANNON_PIVOT_VERTICAL_AUTONOMOUS_LEFT_ANGLE, Constants.DRIVE_AUTONOMOUS_SHOOTING_DISTANCE),
+        new Drive(driveTrain, Constants.DRIVE_AUTONOMOUS_CROSS_LINE_DISTANCE));
   }
 }

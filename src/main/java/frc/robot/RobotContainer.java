@@ -11,6 +11,8 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.AutonomousMiddle;
 import frc.robot.commands.DriveWithController;
+import frc.robot.subsystems.CannonPivotHorizontal;
+import frc.robot.subsystems.CannonPivotVertical;
 import frc.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj2.command.Command;
 
@@ -26,9 +28,10 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   // TODO: add every subsystem here in the manner of m_drivetrain
   private final DriveTrain m_driveTrain = new DriveTrain();
+  private final CannonPivotHorizontal m_cannonPivotHorizontal = new CannonPivotHorizontal();
+  private final CannonPivotVertical m_cannonPivotVertical = new CannonPivotVertical();
 
-  // TODO: add other autonomous commands
-  private final AutonomousMiddle m_autoCommand = new AutonomousMiddle(m_driveTrain);
+  private final AutonomousMiddle m_autoCommand = new AutonomousMiddle(m_driveTrain, m_cannonPivotHorizontal, m_cannonPivotVertical);
 
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.

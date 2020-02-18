@@ -10,18 +10,19 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import frc.robot.subsystems.CannonPivotHorizontal;
 import frc.robot.subsystems.CannonPivotVertical;
+import frc.robot.subsystems.DriveTrain;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html
-public class PivotCannon extends ParallelCommandGroup {
+public class PrepareCannonForShooting extends ParallelCommandGroup {
   /**
    * Creates a new PivotCannon.
    */
-  public PivotCannon(CannonPivotHorizontal cannonPivotHorizontal, CannonPivotVertical cannonPivotVertical,
-      double horizontalAngle, double verticalAngle) {
+  public PrepareCannonForShooting(DriveTrain driveTrain, CannonPivotHorizontal cannonPivotHorizontal, CannonPivotVertical cannonPivotVertical,
+      double driveDistance, double horizontalAngle, double verticalAngle) {
 
-    super(new PivotCannonHorizontal(cannonPivotHorizontal, horizontalAngle),
+    super(new Drive(driveTrain, driveDistance), new PivotCannonHorizontal(cannonPivotHorizontal, horizontalAngle),
         new PivotCannonVertical(cannonPivotVertical, verticalAngle));
   }
 }

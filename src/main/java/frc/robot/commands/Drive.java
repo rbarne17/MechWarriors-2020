@@ -14,15 +14,15 @@ public class Drive extends CommandBase {
   /**
    * Creates a new Drive.
    */
-  // TODO: create constructor with at least the necessary subsystem(s)
-  // TODO: place subsystem in addRequirements()
   // TODO: build this out similar to Drive in
   // https://github.com/rbarne17/MechWarriors-2018/blob/master/src/main/java/org/usfirst/frc/team4764/robot/commands/Drive.java.
   private DriveTrain m_DriveTrain;
+  private double m_driveDistance;
 
-  public Drive(DriveTrain driveTrain) {
+  public Drive(DriveTrain driveTrain, double driveDistance) {
     // Use addRequirements() here to declare subsystem dependencies.
     m_DriveTrain = driveTrain;
+    m_driveDistance = driveDistance;
     addRequirements(m_DriveTrain);
   }
 
