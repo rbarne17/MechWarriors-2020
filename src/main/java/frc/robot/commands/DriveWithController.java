@@ -8,25 +8,32 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import java.util.function.DoubleSupplier;
 
 // TODO: see https://github.com/wpilibsuite/Gearsbot/blob/master/src/main/java/frc/robot/commands/TeleopDriveCommand.java and https://github.com/rbarne17/MechWarriors-2018/blob/master/src/main/java/org/usfirst/frc/team4764/robot/commands/DriveWithController.java for good example how to build this
 
 public class DriveWithController extends CommandBase {
+  private final DoubleSupplier xSpeed;
+  private final DoubleSupplier zRotation;
   /**
    * Creates a new DriveWithController.
    */
 
-  // TODO: create constructor with at least the necessary subsystem(s)
-  // TODO: place subsystem in addRequirements()
-  
-  public DriveWithController() {
-    // Use addRequirements() here to declare subsystem dependencies.
+  public DriveWithController( DoubleSupplier xSpeed, DoubleSupplier zRotation ) {
+    this.xSpeed = xSpeed;
+    this.zRotation = zRotation;
+
   }
 
-  // Called when the command is initially scheduled.
+  public DriveWithController() {
+}
+
+// Called when the command is initially scheduled.
   @Override
   public void initialize() {
+
   }
+
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override

@@ -25,7 +25,7 @@ public class Robot extends TimedRobot {
   private final Spark m_rightSpark = new Spark(1); // Right motor controller
   private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_leftSpark, m_rightSpark); // Combined motor control
   private final Joystick m_stick = new Joystick(0); // Primary joystick/controller
-  private Ultrasonic ultrasonic = new Ultrasonic(1, 0); // Ultrasonic sensor
+  //private Ultrasonic ultrasonic = new Ultrasonic(1, 0); // Ultrasonic sensor
 
   private static final int IMG_WIDTH = 160; // Vision image width(pixels)
   private static final int IMG_HEIGHT = 120; // Vision image height(pixels)
@@ -58,7 +58,7 @@ public class Robot extends TimedRobot {
       }
     });
     visionThread.start(); // Starts vision thread
-    ultrasonic.setAutomaticMode(true); // Sets ultrasonic sensor to "round-robin" mode - automatically updates all sensors
+    //ultrasonic.setAutomaticMode(true); // Sets ultrasonic sensor to "round-robin" mode - automatically updates all sensors
     super.robotInit(); // Initialize robot
   }
 
@@ -81,7 +81,7 @@ public class Robot extends TimedRobot {
       } else if (turn <= visionMinimumSpeed) { // If target is not close enough to center but motor speed will not activate motors
         turn = visionMinimumSpeed; // Set the motor speed to minimum value so that the robot actually turns
       }
-      System.out.println(turn); // Debug
+      //System.out.println(turn); // Debug
       m_robotDrive.arcadeDrive(0, turn); // Rotate the robot in place
     }
   }
@@ -89,7 +89,6 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     if (m_stick.getRawButton(5)) {
-      SmartDashboard.putString("DB/String 0", "Locating Target...");
       double centerX;
       synchronized (imgLock) {
           centerX = this.centerX;
@@ -107,12 +106,7 @@ public class Robot extends TimedRobot {
         m_robotDrive.arcadeDrive(0, turn);
       }
     } else {
-      SmartDashboard.putString("DB/String 0", "Vision inactive.");
       m_robotDrive.arcadeDrive(m_stick.getY()*0.75, m_stick.getX()*0.75);
     }
-    System.out.print(ultrasonic.getRangeMM());
-    System.out.print(" MM ; ");
-    System.out.print(ultrasonic.getRangeInches());
-    System.out.println(" IN");
   }
 }
