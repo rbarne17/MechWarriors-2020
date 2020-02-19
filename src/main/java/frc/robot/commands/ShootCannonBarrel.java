@@ -10,8 +10,6 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.CannonBarrel;
 
-// TODO: create constructor with at least the necessary subsystem(s)
-// TODO: place subsystem in addRequirements()
 public class ShootCannonBarrel extends CommandBase {
   
   private CannonBarrel m_cannonBarrel;

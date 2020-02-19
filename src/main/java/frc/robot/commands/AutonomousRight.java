@@ -8,6 +8,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import frc.robot.subsystems.DriveTrain;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
@@ -16,8 +17,8 @@ public class AutonomousRight extends SequentialCommandGroup {
   /**
    * Creates a new AutonomousRight.
    */
-  public AutonomousRight() {
-    // TODO: Add commands that make up AutonomousRight in the super() call,  super(new FooCommand(), new BarCommand());
-    super();
+  public AutonomousRight(DriveTrain driveTrain) {
+    //TODO: set this super up using the example AutonomousLeft and AutonomousMiddle
+    //super(new Drive(driveTrain));
   }
 }

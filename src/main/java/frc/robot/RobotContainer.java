@@ -33,6 +33,7 @@ public class RobotContainer {
 
   private final AutonomousMiddle m_autoCommand = new AutonomousMiddle(m_driveTrain, m_cannonPivotHorizontal, m_cannonPivotVertical);
 
+  private final XboxController driverControllerXbox = new XboxController(0);
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
    */
@@ -40,7 +41,9 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
 
-    m_driveTrain.setDefaultCommand(new DriveWithController(m_driveTrain));
+    m_driveTrain.setDefaultCommand(new DriveWithController(m_driveTrain,
+    () -> -1 * driverControllerXbox.getY(GenericHID.Hand.kLeft),
+    () -> driverControllerXbox.getX(GenericHID.Hand.kLeft)));
   }
 
   /**

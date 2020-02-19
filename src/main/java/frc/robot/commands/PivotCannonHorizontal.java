@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.CannonPivotHorizontal;
 
 public class PivotCannonHorizontal extends CommandBase {
-
   /**
    * Creates a new PositionTurntable.
    */

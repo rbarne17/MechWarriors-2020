@@ -8,6 +8,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import frc.robot.subsystems.CannonBarrel;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
@@ -16,9 +17,7 @@ public class Shoot extends SequentialCommandGroup {
   /**
    * Creates a new Shoot.
    */
-  // TODO: create constructor with at least the necessary subsystem(s)
-  public Shoot() {
-    // TODO: Add ShootPowerCell in the super() call, e.g.
-    // super(new FooCommand(), new BarCommand());super();
+  public Shoot(CannonBarrel cannonBarrel) {
+    super(new ShootCannonBarrel(cannonBarrel));
   }
 }

@@ -13,7 +13,7 @@ import frc.robot.subsystems.CannonPivotVertical;
 import frc.robot.subsystems.DriveTrain;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
-// information, see:
+// information, see:s
 // https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html
 public class PrepareCannonForShooting extends ParallelCommandGroup {
   /**
