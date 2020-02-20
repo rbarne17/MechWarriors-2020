@@ -47,21 +47,21 @@ public final class Constants {
     
     //preferred speeds for subsystems
     //TODO: get real speeds for these motors
-    public static final double CANNON_PIVOT_HORIZONTAL_SPEED = 0;
-    public static final int CANNON_PIVOT_VERTICAL_SPEED = 0;
-    public static final double CANNON_BARREL_SPEED = 0.0;
-	public static final double CANNON_BARREL_FEEDER_SPEED = 0;
-	public static final double CANNON_RAMMER_SPEED = 0;
-	public static final double CLIMB_CLAW_SPEED = 0;
-	public static final int GROUND_LOADER_SPEED = 0;
-	public static final double CANNON_PIVOT_HORIZONTAL_AUTONOMOUS_LEFT_ANGLE = 0;
-	public static final double CANNON_PIVOT_VERTICAL_AUTONOMOUS_LEFT_ANGLE = 0;
-	public static final double DRIVE_AUTONOMOUS_SHOOTING_DISTANCE = 0;
-	public static final double DRIVE_AUTONOMOUS_CROSS_LINE_DISTANCE = 0;
-	public static final double CANNON_PIVOT_HORIZONTAL_AUTONOMOUS_MIDDLE_ANGLE = 0;
-	public static final double CANNON_PIVOT_VERTICAL_AUTONOMOUS_MIDDLE_ANGLE = 0;
-	public static final int CANNON_BARREL_FEEDER_LEFT_MOTOR = 0;
-	public static final int CANNON_BARREL_FEEDER_RIGHT_MOTOR = 0;
+    public static final double CANNON_PIVOT_HORIZONTAL_SPEED = 0.5;
+    public static final double CANNON_PIVOT_VERTICAL_SPEED = 0.5;
+    public static final double CANNON_BARREL_SPEED = 0.5;
+	public static final double CANNON_BARREL_FEEDER_SPEED = 0.5;
+	public static final double CANNON_RAMMER_SPEED = 0.5;
+	public static final double CLIMB_CLAW_SPEED = .5;
+	public static final double GROUND_LOADER_SPEED = 0.5;
+	public static final double CANNON_PIVOT_HORIZONTAL_AUTONOMOUS_LEFT_ANGLE = 0.5;
+	public static final double CANNON_PIVOT_VERTICAL_AUTONOMOUS_LEFT_ANGLE = 0.5;
+	public static final double DRIVE_AUTONOMOUS_SHOOTING_DISTANCE = 0.5;
+	public static final double DRIVE_AUTONOMOUS_CROSS_LINE_DISTANCE = 0.5;
+	public static final double CANNON_PIVOT_HORIZONTAL_AUTONOMOUS_MIDDLE_ANGLE = 0.5;
+	public static final double CANNON_PIVOT_VERTICAL_AUTONOMOUS_MIDDLE_ANGLE = 0.5;
+	public static final double CANNON_BARREL_FEEDER_LEFT_MOTOR = 0.5;
+	public static final double CANNON_BARREL_FEEDER_RIGHT_MOTOR = 0.5;
 
     // AUTONOMOUS PIVOT TURNTABLE MIDDLE
     // AUTONOMOUS PIVOT TURNTABLE RIGHT
