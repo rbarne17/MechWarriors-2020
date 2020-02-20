@@ -19,7 +19,9 @@ public class CannonBarrel extends SubsystemBase {
    */
   private WPI_TalonSRX leftCannonBarrelMotor = new WPI_TalonSRX(Constants.CANNON_BARREL_LEFT_MOTOR);
   private WPI_TalonSRX rightCannonBarrelMotor = new WPI_TalonSRX(Constants.CANNON_BARREL_RIGHT_MOTOR);
-  // TODO: create motor declarations for the CannonBarrel feed wheels
+  private WPI_TalonSRX leftCannonBarrelFeederMotor = new WPI_TalonSRX(Constants.CANNON_BARREL_FEEDER_LEFT_MOTOR);
+  private WPI_TalonSRX rightCannonBarrelFeederMotor = new WPI_TalonSRX(Constants.CANNON_BARREL_FEEDER_RIGHT_MOTOR);
+
 
   public CannonBarrel() {
 
@@ -33,9 +35,9 @@ public class CannonBarrel extends SubsystemBase {
     leftCannonBarrelMotor.set(0);
     rightCannonBarrelMotor.set(0);
 
-    // TODO: reset motors for the CannonBarrel feed wheels
-    //leftCannonBarrelMotor.reset(0);
-    //rightCannonBarrelMotor.reset(0);
+  
+    leftCannonBarrelFeederMotor.set(0);
+    rightCannonBarrelFeederMotor.set(0);
   }
 
   public void loadCannonBarrelForStorage(double barrelSpeed, double feederSpeed) {
@@ -56,6 +58,7 @@ public class CannonBarrel extends SubsystemBase {
   private void setCannonBarrelFeeder(double feederSpeed) {
     // TODO: add code to set feeder motors once we know what the motors will be
   }
+
 
   public void shootCannonBarrel() {
     setCannonBarrel(Constants.CANNON_BARREL_SPEED);

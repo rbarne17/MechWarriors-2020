@@ -60,6 +60,8 @@ public final class Constants {
 	public static final double DRIVE_AUTONOMOUS_CROSS_LINE_DISTANCE = 0;
 	public static final double CANNON_PIVOT_HORIZONTAL_AUTONOMOUS_MIDDLE_ANGLE = 0;
 	public static final double CANNON_PIVOT_VERTICAL_AUTONOMOUS_MIDDLE_ANGLE = 0;
+	public static final int CANNON_BARREL_FEEDER_LEFT_MOTOR = 0;
+	public static final int CANNON_BARREL_FEEDER_RIGHT_MOTOR = 0;
 
     // AUTONOMOUS PIVOT TURNTABLE MIDDLE
     // AUTONOMOUS PIVOT TURNTABLE RIGHT
