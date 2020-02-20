@@ -8,19 +8,26 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
+import frc.robot.subsystems.CannonBarrel;
+import frc.robot.subsystems.GroundLoader;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html
 public class LoadPowerCells extends ParallelCommandGroup {
-  /**
+  private static final GroundLoader LoadPowerCellsGround = null;
+  private static final CannonBarrel LoadPowerCellsCannon = null;
+
+/**
    * Creates a new LoadPowerCells.
    */
   // TODO: create constructor with at least the necessary subsystem(s)
+
   // TODO: place subsystem in addRequirements()
-  public LoadPowerCells() {
-    // TODO: Add LoadPowerCellsGround, LoadPowerCellsCannon in the super() call,
+  public LoadPowerCells(CannonBarrel cannonBarrel) {
+    super(new LoadPowerCellsGround(LoadPowerCellsGround), new LoadPowerCellsCannon(LoadPowerCellsCannon));
     // e.g.
     // super(new FooCommand(), new BarCommand());super();
   }
 }
+

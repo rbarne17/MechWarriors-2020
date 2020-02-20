@@ -54,8 +54,10 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
 
-    // TODO: work with Miles to get what buttons he wants to use for what commands
+
     // TODO: what button/stick will Shoot()
+    
+
     // TODO: what button/stick will LoadPowerCells()
     // TODO: what button/stick will PivotCannonHorizontal()
     // TODO: what button/stick will PivotCannonVertical()

@@ -36,6 +36,9 @@ public final class Constants {
     public static final int CANNON_RAMMER_MOTOR = 7;
     public static final int CANNON_RAMMER_RIGHT_MOTOR = 8;
     public static final int CLIMB_CLAW_MOTOR = 9;
+    //TODO; need to establish actual values for these motors
+    public static final int CANNON_BARREL_FEEDER_LEFT_MOTOR = 0;
+    public static final int CANNON_BARREL_FEEDER_RIGHT_MOTOR = 0;
 
     // sensor value constants
 //TODO: determine encoder and other sensor values for key movements, 
@@ -60,8 +63,7 @@ public final class Constants {
 	public static final double DRIVE_AUTONOMOUS_CROSS_LINE_DISTANCE = 0.5;
 	public static final double CANNON_PIVOT_HORIZONTAL_AUTONOMOUS_MIDDLE_ANGLE = 0.5;
 	public static final double CANNON_PIVOT_VERTICAL_AUTONOMOUS_MIDDLE_ANGLE = 0.5;
-	public static final double CANNON_BARREL_FEEDER_LEFT_MOTOR = 0.5;
-	public static final double CANNON_BARREL_FEEDER_RIGHT_MOTOR = 0.5;
+	
 
     // AUTONOMOUS PIVOT TURNTABLE MIDDLE
     // AUTONOMOUS PIVOT TURNTABLE RIGHT

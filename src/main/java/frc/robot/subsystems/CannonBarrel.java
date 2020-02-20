@@ -56,8 +56,10 @@ public class CannonBarrel extends SubsystemBase {
   }
 
   private void setCannonBarrelFeeder(double feederSpeed) {
-    // TODO: add code to set feeder motors once we know what the motors will be
+    leftCannonBarrelFeederMotor.set(0.5);
+    rightCannonBarrelFeederMotor.set(0.5);
   }
+
 
 
   public void shootCannonBarrel() {
@@ -78,7 +80,7 @@ public class CannonBarrel extends SubsystemBase {
   }
 
   private double getLeftEncoderSpeed() {
-    // TODO: figure out how encoders will tell us what speed
+    // TODO: figure out how encoders will tell us what speed  | We Know
     return 0;
 
   }
