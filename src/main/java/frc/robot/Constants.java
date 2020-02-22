@@ -32,16 +32,15 @@ public final class Constants {
     public static final int DRIVETRAIN_ULTRASONIC = 0;
 
     // CAN PORTS
-    // TODO; need to get real CAN values for these motors
-    public static final int GROUND_LOADER_MOTOR = 1;
-    public static int CANNON_PIVOT_HORIZONTAL_MOTOR = 3;
-    public static int CANNON_PIVOT_VERTICAL_MOTOR = 4;
+    public static final int GROUND_LOADER_MOTOR = 9;
+    public static final int CANNON_PIVOT_HORIZONTAL_MOTOR = 8;
+    public static final int CANNON_PIVOT_VERTICAL_MOTOR = 7;
     public static final int CANNON_BARREL_LEFT_MOTOR = 5;
     public static final int CANNON_BARREL_RIGHT_MOTOR = 6;
-    public static final int CANNON_RAMMER_MOTOR = 7;
-    public static final int CLIMB_CLAW_MOTOR = 8;
-    public static final int CANNON_BARREL_FEEDER_LEFT_MOTOR = 0;
-    public static final int CANNON_BARREL_FEEDER_RIGHT_MOTOR = 0;
+    public static final int CANNON_RAMMER_MOTOR = 4;
+    public static final int CLIMB_CLAW_MOTOR = 12;
+    public static final int CANNON_BARREL_FEEDER_LEFT_MOTOR = 2;
+    public static final int CANNON_BARREL_FEEDER_RIGHT_MOTOR = 3;
 
     // sensor/motor translation constants
     // TODO: get real values for these
