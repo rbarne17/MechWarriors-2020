@@ -18,8 +18,8 @@ public class CannonRammer extends SubsystemBase {
    */
 
   private WPI_TalonSRX m_cannonrammermotor = new WPI_TalonSRX(Constants.CANNON_RAMMER_MOTOR);
-  private DigitalInput rammerHomeLimitSwitch = new DigitalInput(Constants.CANNON_RAMMER_HOME_LIMIT_SWITCH);
-  private DigitalInput rammerBallPositionIRSensor = new DigitalInput(Constants.CANNON_RAMMER_BALL_POSITION_IR_SENSOR);
+  private DigitalInput rammerHomeLimitSwitch = new DigitalInput(Constants.CANNON_RAMMER_LIMIT_HOME);
+  private DigitalInput rammerBallPositionIRSensor = new DigitalInput(Constants.CANNON_RAMMER_BEAM_SENSOR_BALL_IN_POSITION);
 
   public CannonRammer() {
 

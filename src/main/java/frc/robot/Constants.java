@@ -25,8 +25,8 @@ public final class Constants {
     // DIO PORTS
     public static final int CANNON_PIVOT_HORIZONTAL_LIMIT_ZERO = 0;
     public static final int CANNON_PIVOT_VERTICAL_LIMIT_ZERO = 1;
-    public static final int CANNON_RAMMER_HOME_LIMIT_SWITCH = 3;
-    public static final int CANNON_RAMMER_BALL_POSITION_IR_SENSOR = 4;
+    public static final int CANNON_RAMMER_LIMIT_HOME = 3;
+    public static final int CANNON_RAMMER_BEAM_SENSOR_BALL_IN_POSITION = 4;
 
     // ANALOG PORTS
     public static final int DRIVETRAIN_ULTRASONIC = 0;
