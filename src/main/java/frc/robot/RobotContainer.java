@@ -11,8 +11,12 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.AutonomousMiddle;
 import frc.robot.commands.DriveWithController;
+import frc.robot.commands.PivotCannonHorizontalWithController;
+import frc.robot.commands.PivotCannonVerticalWithController;
+import frc.robot.commands.RamCannon;
 import frc.robot.subsystems.CannonPivotHorizontal;
 import frc.robot.subsystems.CannonPivotVertical;
+import frc.robot.subsystems.CannonRammer;
 import frc.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj2.command.Command;
 
@@ -30,7 +34,7 @@ public class RobotContainer {
   private final DriveTrain m_driveTrain = new DriveTrain();
   private final CannonPivotHorizontal m_cannonPivotHorizontal = new CannonPivotHorizontal();
   private final CannonPivotVertical m_cannonPivotVertical = new CannonPivotVertical();
-
+  private final CannonRammer m_cannonRammer = new CannonRammer();
   private final AutonomousMiddle m_autoCommand = new AutonomousMiddle(m_driveTrain, m_cannonPivotHorizontal,
       m_cannonPivotVertical);
 
@@ -43,9 +47,15 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
 
+    //default commands that will run whenever other commands have taken over associated subsystems
     m_driveTrain.setDefaultCommand(
         new DriveWithController(m_driveTrain, () -> -1 * driverControllerXbox.getY(GenericHID.Hand.kLeft),
             () -> driverControllerXbox.getX(GenericHID.Hand.kLeft)));
+    m_cannonPivotHorizontal.setDefaultCommand(new PivotCannonHorizontalWithController(m_cannonPivotHorizontal,
+        () -> driverControllerXbox.getX(GenericHID.Hand.kRight)));
+    m_cannonPivotVertical.setDefaultCommand(new PivotCannonVerticalWithController(m_cannonPivotVertical,
+        () -> driverControllerXbox.getY(GenericHID.Hand.kRight)));
+    m_cannonRammer.setDefaultCommand(new RamCannon(m_cannonRammer));
   }
 
   /**
@@ -58,12 +68,10 @@ public class RobotContainer {
 
     // TODO: add button bindings for the following
     /*
-     * From Miles: Xbox controller 
-     * button/stick will Shoot(): right trigger what button/stick will
-     * LoadPowerCells(): right bumper what button/stick will
-     * PivotCannonHorizontal(): right stick X what button/stick will
-     * PivotCannonVertical(): right stick Y what button/stick will trigger Climb():
-     * B button press on/press off
+     * From Miles:  
+     * button/stick will Shoot(): right trigger
+     * button/stick will LoadPowerCells(): right bumper 
+     * what button/stick will trigger Climb(): B button press on/press off
      */
 
   }

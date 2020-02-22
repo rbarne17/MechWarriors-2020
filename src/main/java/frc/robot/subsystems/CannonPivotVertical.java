@@ -33,7 +33,7 @@ public class CannonPivotVertical extends SubsystemBase {
     cannonPivotMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
   }
 
-  public void pivotCannon(boolean direction) {
+  public void pivotCannonAutonomous(boolean direction) {
     // direction true, clockwise
     // direction false, counterclockwise
     if (direction) {
@@ -41,6 +41,10 @@ public class CannonPivotVertical extends SubsystemBase {
     } else {
       cannonPivotMotor.set(-Constants.CANNON_PIVOT_VERTICAL_SPEED);
     }
+  }
+
+  public void pivotCannonTeleop(double speed) {
+    cannonPivotMotor.set(speed);
   }
 
   public double getCannonPivotAngle() {
@@ -60,9 +64,9 @@ public class CannonPivotVertical extends SubsystemBase {
       // if cannon pivot turned clockwise (> 0.0) turn counterclockwise (false)
       // if cannon pivot turned counterclockwise (< 0.0) turn clockwise (true)
       if (getCannonPivotAngle() > 0.0) {
-        pivotCannon(false);
+        pivotCannonAutonomous(false);
       } else if (getCannonPivotAngle() < 0.0) {
-        pivotCannon(true);
+        pivotCannonAutonomous(true);
       }
 
       resetCannonPivotAngle();

@@ -39,9 +39,9 @@ public class PivotCannonVertical extends CommandBase {
 
     // false means turn counterclockwise, true clockwise
     if (m_pivotangle > 0.0) {
-      m_cannonpivotvertical.pivotCannon(true);
+      m_cannonpivotvertical.pivotCannonAutonomous(true);
     } else if (m_pivotangle < 0.0) {
-      m_cannonpivotvertical.pivotCannon(false);
+      m_cannonpivotvertical.pivotCannonAutonomous(false);
     }
   }
 

@@ -15,14 +15,14 @@ import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 public class CannonPivotHorizontal extends SubsystemBase {
-  
+
   /**
    * Creates a new CannonPivot.
    */
 
   // CAN motor with built in encoder, plus limit switch connected to DIO (latter
   // might change to CAN connected limit switch) '
-  private WPI_TalonSRX cannonpivotMotor = new WPI_TalonSRX(Constants.CANNON_PIVOT_HORIZONTAL_MOTOR);
+  private WPI_TalonSRX cannonPivotMotor = new WPI_TalonSRX(Constants.CANNON_PIVOT_HORIZONTAL_MOTOR);
   private DigitalInput cannonpivotLimitZero = new DigitalInput(Constants.CANNON_PIVOT_HORIZONTAL_LIMIT_ZERO);
 
   public CannonPivotHorizontal() {
@@ -30,17 +30,21 @@ public class CannonPivotHorizontal extends SubsystemBase {
     // 1. stop motor
     // 2.set up CAN connected encoder
     stopCannonPivot();
-    cannonpivotMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
+    cannonPivotMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
   }
 
-  public void pivotCannon(boolean direction) {
+  public void pivotCannonAutonomous(boolean direction) {
     // direction true, clockwise
     // direction false, counterclockwise
     if (direction) {
-      cannonpivotMotor.set(Constants.CANNON_PIVOT_HORIZONTAL_SPEED);
+      cannonPivotMotor.set(Constants.CANNON_PIVOT_HORIZONTAL_SPEED);
     } else {
-      cannonpivotMotor.set(-Constants.CANNON_PIVOT_HORIZONTAL_SPEED);
+      cannonPivotMotor.set(-Constants.CANNON_PIVOT_HORIZONTAL_SPEED);
     }
+  }
+
+  public void pivotCannonTeleop(double speed) {
+    cannonPivotMotor.set(speed);
   }
 
   public double getCannonPivotAngle() {
@@ -52,7 +56,7 @@ public class CannonPivotHorizontal extends SubsystemBase {
   }
 
   public void stopCannonPivot() {
-    cannonpivotMotor.set(0.0);
+    cannonPivotMotor.set(0.0);
   }
 
   public void setCannonPivotHome() {
@@ -60,9 +64,9 @@ public class CannonPivotHorizontal extends SubsystemBase {
       // if cannonpivot turned clockwise (> 0.0) turn counterclockwise (false)
       // if cannonpivot turned counterclockwise (< 0.0) turn clockwise (true)
       if (getCannonPivotAngle() > 0.0) {
-        pivotCannon(false);
+        pivotCannonAutonomous(false);
       } else if (getCannonPivotAngle() < 0.0) {
-        pivotCannon(true);
+        pivotCannonAutonomous(true);
       }
 
       resetCannonPivotAngle();
@@ -75,11 +79,11 @@ public class CannonPivotHorizontal extends SubsystemBase {
   }
 
   private void resetCannonPivotEncoder() {
-    cannonpivotMotor.setSelectedSensorPosition(0);
+    cannonPivotMotor.setSelectedSensorPosition(0);
   }
 
   private int getCannonPivotEncoderValue() {
-    return cannonpivotMotor.getSelectedSensorPosition();
+    return cannonPivotMotor.getSelectedSensorPosition();
   }
 
   @Override

@@ -7,6 +7,8 @@
 
 package frc.robot.commands;
 
+import java.util.function.DoubleSupplier;
+
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.CannonPivotVertical;
 
@@ -16,10 +18,11 @@ public class PivotCannonVerticalWithController extends CommandBase {
    */
   
   private CannonPivotVertical m_CannonPivotVertical;
+  private DoubleSupplier m_xSpeed;
 
-  public PivotCannonVerticalWithController(CannonPivotVertical cannonPivotVertical) {
-    // Use addRequirements() here to declare subsystem dependencies.
+  public PivotCannonVerticalWithController(CannonPivotVertical cannonPivotVertical, DoubleSupplier xSpeed) {
     m_CannonPivotVertical = cannonPivotVertical;
+    m_xSpeed = xSpeed;
     addRequirements(m_CannonPivotVertical);
   }
 
@@ -31,6 +34,7 @@ public class PivotCannonVerticalWithController extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    m_CannonPivotVertical.pivotCannonTeleop(m_xSpeed.getAsDouble());
   }
   
   // Called once the command ends or is interrupted.
