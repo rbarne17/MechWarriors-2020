@@ -26,7 +26,7 @@ public class AutonomousMiddle extends SequentialCommandGroup {
         new PrepareCannonForShooting(driveTrain, cannonPivotHorizontal, cannonPivotVertical,
             Constants.DRIVE_AUTONOMOUS_SHOOTING_DISTANCE, Constants.CANNON_PIVOT_HORIZONTAL_AUTONOMOUS_MIDDLE_ANGLE,
             Constants.CANNON_PIVOT_VERTICAL_AUTONOMOUS_MIDDLE_ANGLE),
-        new Drive(driveTrain, Constants.DRIVE_AUTONOMOUS_CROSS_LINE_DISTANCE));
+        new Drive(driveTrain, Constants.DRIVETRAIN_SPEED, 0, Constants.DRIVE_AUTONOMOUS_CROSS_LINE_DISTANCE));
 
   }
 }

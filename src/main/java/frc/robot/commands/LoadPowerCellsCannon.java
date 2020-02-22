@@ -8,6 +8,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Constants;
 import frc.robot.subsystems.CannonBarrel;
 
 public class LoadPowerCellsCannon extends CommandBase {
@@ -30,6 +31,7 @@ public class LoadPowerCellsCannon extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    m_cannonBarrel.loadCannonBarrelForStorage(Constants.CANNON_BARREL_LOAD_SPEED,Constants.CANNON_BARREL_FEEDER_SPEED);
   }
 
   // Called once the command ends or is interrupted.

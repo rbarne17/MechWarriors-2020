@@ -8,6 +8,9 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import frc.robot.Constants;
+import frc.robot.subsystems.CannonPivotHorizontal;
+import frc.robot.subsystems.CannonPivotVertical;
 import frc.robot.subsystems.DriveTrain;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
@@ -17,8 +20,12 @@ public class AutonomousRight extends SequentialCommandGroup {
   /**
    * Creates a new AutonomousRight.
    */
-  public AutonomousRight(DriveTrain driveTrain) {
-    //TODO: set this super up using the example AutonomousLeft and AutonomousMiddle
-    //super(new Drive(driveTrain));
+  public AutonomousRight(DriveTrain driveTrain, CannonPivotHorizontal cannonPivotHorizontal,
+      CannonPivotVertical cannonPivotVertical) {
+    super(
+        new PrepareCannonForShooting(driveTrain, cannonPivotHorizontal, cannonPivotVertical,
+            Constants.CANNON_PIVOT_HORIZONTAL_AUTONOMOUS_RIGHT_ANGLE,
+            Constants.CANNON_PIVOT_VERTICAL_AUTONOMOUS_RIGHT_ANGLE, Constants.DRIVE_AUTONOMOUS_SHOOTING_DISTANCE),
+        new Drive(driveTrain, Constants.DRIVETRAIN_SPEED, 0, Constants.DRIVE_AUTONOMOUS_CROSS_LINE_DISTANCE));
   }
 }

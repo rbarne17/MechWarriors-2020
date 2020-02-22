@@ -22,7 +22,6 @@ public class CannonBarrel extends SubsystemBase {
   private WPI_TalonSRX leftCannonBarrelFeederMotor = new WPI_TalonSRX(Constants.CANNON_BARREL_FEEDER_LEFT_MOTOR);
   private WPI_TalonSRX rightCannonBarrelFeederMotor = new WPI_TalonSRX(Constants.CANNON_BARREL_FEEDER_RIGHT_MOTOR);
 
-
   public CannonBarrel() {
 
     stopCannonBarrel();
@@ -35,7 +34,6 @@ public class CannonBarrel extends SubsystemBase {
     leftCannonBarrelMotor.set(0);
     rightCannonBarrelMotor.set(0);
 
-  
     leftCannonBarrelFeederMotor.set(0);
     rightCannonBarrelFeederMotor.set(0);
   }
@@ -56,14 +54,12 @@ public class CannonBarrel extends SubsystemBase {
   }
 
   private void setCannonBarrelFeeder(double feederSpeed) {
-    leftCannonBarrelFeederMotor.set(0.5);
-    rightCannonBarrelFeederMotor.set(0.5);
+    leftCannonBarrelFeederMotor.set(feederSpeed);
+    rightCannonBarrelFeederMotor.set(feederSpeed);
   }
 
-
-
   public void shootCannonBarrel() {
-    setCannonBarrel(Constants.CANNON_BARREL_SPEED);
+    setCannonBarrel(Constants.CANNON_BARREL_LOAD_SPEED);
     while (!getCannonBarrelReadyToShoot()) {
       continue;
     }
@@ -71,8 +67,8 @@ public class CannonBarrel extends SubsystemBase {
   }
 
   public boolean getCannonBarrelReadyToShoot() {
-    if ((getLeftEncoderSpeed() >= Constants.CANNON_BARREL_SPEED)
-        && (getRightEncoderSpeed() >= Constants.CANNON_BARREL_SPEED)) {
+    if ((getLeftEncoderSpeed() >= Constants.CANNON_BARREL_LOAD_SPEED)
+        && (getRightEncoderSpeed() >= Constants.CANNON_BARREL_LOAD_SPEED)) {
       return true;
     } else {
       return false;
@@ -80,14 +76,12 @@ public class CannonBarrel extends SubsystemBase {
   }
 
   private double getLeftEncoderSpeed() {
-    // TODO: figure out how encoders will tell us what speed  | We Know
-    return 0;
+    return leftCannonBarrelMotor.getSelectedSensorVelocity();
 
   }
 
   private double getRightEncoderSpeed() {
-    // TODO: figure out how encoders will tell us what speed
-    return 0;
+    return leftCannonBarrelMotor.getSelectedSensorVelocity();
 
   }
 

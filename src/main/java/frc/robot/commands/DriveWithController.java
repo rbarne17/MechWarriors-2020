@@ -20,13 +20,13 @@ public class DriveWithController extends CommandBase {
    * Creates a new DriveWithController.
    */
 
-  private DriveTrain m_DriveTrain;
+  private DriveTrain m_driveTrain;
 
   public DriveWithController(DriveTrain driveTrain, DoubleSupplier xSpeed, DoubleSupplier zRotation) {
-    m_DriveTrain = driveTrain;
-    addRequirements(m_DriveTrain);
+    this.m_driveTrain = driveTrain;
     this.m_xSpeed = xSpeed;
     this.m_zRotation = zRotation;
+    addRequirements(m_driveTrain);
 
   }
 
@@ -36,10 +36,11 @@ public class DriveWithController extends CommandBase {
 
   }
 
-
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    m_driveTrain.driveByArcade(m_xSpeed.getAsDouble(), m_zRotation.getAsDouble());
+
   }
 
   // Called once the command ends or is interrupted.

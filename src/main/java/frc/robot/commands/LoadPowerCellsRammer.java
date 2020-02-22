@@ -17,7 +17,6 @@ public class LoadPowerCellsRammer extends CommandBase {
   private CannonRammer m_cannonRammer;
 
   public LoadPowerCellsRammer(CannonRammer cannonRammer) {
-    // Use addRequirements() here to declare subsystem dependencies.
     m_cannonRammer = cannonRammer;
     addRequirements(m_cannonRammer);
   }
@@ -30,7 +29,7 @@ public class LoadPowerCellsRammer extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_cannonRammer.setHome();
+    m_cannonRammer.setCannonRammerLoad();
   }
 
   // Called once the command ends or is interrupted.
@@ -41,6 +40,6 @@ public class LoadPowerCellsRammer extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return m_cannonRammer.getHome();
+    return false;
   }
 }

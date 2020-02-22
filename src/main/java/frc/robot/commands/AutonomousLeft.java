@@ -27,6 +27,6 @@ public class AutonomousLeft extends SequentialCommandGroup {
         new PrepareCannonForShooting(driveTrain, cannonPivotHorizontal, cannonPivotVertical,
             Constants.CANNON_PIVOT_HORIZONTAL_AUTONOMOUS_LEFT_ANGLE,
             Constants.CANNON_PIVOT_VERTICAL_AUTONOMOUS_LEFT_ANGLE, Constants.DRIVE_AUTONOMOUS_SHOOTING_DISTANCE),
-        new Drive(driveTrain, Constants.DRIVE_AUTONOMOUS_CROSS_LINE_DISTANCE));
+        new Drive(driveTrain,Constants.DRIVETRAIN_SPEED, 0, Constants.DRIVE_AUTONOMOUS_CROSS_LINE_DISTANCE));
   }
 }

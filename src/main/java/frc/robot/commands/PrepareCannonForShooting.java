@@ -8,6 +8,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
+import frc.robot.Constants;
 import frc.robot.subsystems.CannonPivotHorizontal;
 import frc.robot.subsystems.CannonPivotVertical;
 import frc.robot.subsystems.DriveTrain;
@@ -19,10 +20,11 @@ public class PrepareCannonForShooting extends ParallelCommandGroup {
   /**
    * Creates a new PivotCannon.
    */
-  public PrepareCannonForShooting(DriveTrain driveTrain, CannonPivotHorizontal cannonPivotHorizontal, CannonPivotVertical cannonPivotVertical,
-      double driveDistance, double horizontalAngle, double verticalAngle) {
+  public PrepareCannonForShooting(DriveTrain driveTrain, CannonPivotHorizontal cannonPivotHorizontal,
+      CannonPivotVertical cannonPivotVertical, double driveDistance, double horizontalAngle, double verticalAngle) {
 
-    super(new Drive(driveTrain, driveDistance), new PivotCannonHorizontal(cannonPivotHorizontal, horizontalAngle),
+    super(new Drive(driveTrain, Constants.DRIVETRAIN_SPEED, 0, driveDistance),
+        new PivotCannonHorizontal(cannonPivotHorizontal, horizontalAngle),
         new PivotCannonVertical(cannonPivotVertical, verticalAngle));
   }
 }

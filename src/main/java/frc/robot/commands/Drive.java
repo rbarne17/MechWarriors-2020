@@ -15,11 +15,15 @@ public class Drive extends CommandBase {
    * Creates a new Drive.
    */
   private DriveTrain m_DriveTrain;
+  private double m_driveSpeed;
+  private double m_driveAngle;
   private double m_driveDistance;
 
-  public Drive(DriveTrain driveTrain, double driveDistance) {
+  public Drive(DriveTrain driveTrain, double driveSpeed, double driveAngle, double driveDistance) {
     // Use addRequirements() here to declare subsystem dependencies.
     m_DriveTrain = driveTrain;
+    m_driveSpeed = driveSpeed;
+    m_driveAngle = driveAngle;
     m_driveDistance = driveDistance;
     addRequirements(m_DriveTrain);
   }
@@ -33,6 +37,8 @@ public class Drive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    m_DriveTrain.driveByArcade(m_driveSpeed,m_driveAngle);
+
   }
 
   // Called once the command ends or is interrupted.
@@ -43,6 +49,6 @@ public class Drive extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return m_DriveTrain.getDistance() >= m_driveDistance;
   }
 }

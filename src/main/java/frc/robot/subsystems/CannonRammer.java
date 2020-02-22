@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import frc.robot.Constants;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
@@ -17,16 +18,16 @@ public class CannonRammer extends SubsystemBase {
    */
 
   private WPI_TalonSRX m_cannonrammermotor = new WPI_TalonSRX(Constants.CANNON_RAMMER_MOTOR);
-  //TODO: add break beam sensor declaration
-  //TODO: add limit switch declaration
+  private DigitalInput rammerHomeLimitSwitch = new DigitalInput(Constants.CANNON_RAMMER_HOME_LIMIT_SWITCH);
+  private DigitalInput rammerBallPositionIRSensor = new DigitalInput(Constants.CANNON_RAMMER_BALL_POSITION_IR_SENSOR);
 
   public CannonRammer() {
 
-    setHome();
+    setCannonRammerLoad();
 
   }
 
-  public void setHome() {
+  public void setCannonRammerLoad() {
     while (!getHome()) {
       setCannonRammer(-Constants.CANNON_RAMMER_SPEED);
     }
@@ -34,25 +35,25 @@ public class CannonRammer extends SubsystemBase {
   }
 
   public boolean getHome() {
-    // TODO: add limit switch code
-    return false;
+    return rammerHomeLimitSwitch.get();
   }
 
-  public void setCannonRammerRam(){
-  setCannonRammer(Constants.CANNON_RAMMER_SPEED);
+  public void setCannonRammerRam() {
+    while (!getPowerCellsReadyToShoot()) {
+      setCannonRammer(Constants.CANNON_RAMMER_SPEED);
+    }
   }
-  
+
+  public boolean getPowerCellsReadyToShoot() {
+    return rammerBallPositionIRSensor.get();
+  }
+
   private void stopCannonRammer() {
     setCannonRammer(0.0);
   }
 
   private void setCannonRammer(double rammerSpeed) {
     m_cannonrammermotor.set(rammerSpeed);
-  }
-
-  public boolean getPowerCellsReadyToShoot(){
-    //TODO: if beam broken, true; else false
-    return true;
   }
 
   @Override

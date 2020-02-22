@@ -12,7 +12,7 @@ import frc.robot.subsystems.GroundLoader;
 
 public class LoadPowerCellsGround extends CommandBase {
   /**
-   * Creates a new IntakePowerCell.
+   * Creates a new LoadPowerCellsGround.
    */
 
   private GroundLoader m_GroundLoader;
@@ -30,6 +30,7 @@ public class LoadPowerCellsGround extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    m_GroundLoader.setGroundLoaderLoad();
   }
 
   // Called once the command ends or is interrupted.
