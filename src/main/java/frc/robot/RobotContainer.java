@@ -31,9 +31,11 @@ public class RobotContainer {
   private final CannonPivotHorizontal m_cannonPivotHorizontal = new CannonPivotHorizontal();
   private final CannonPivotVertical m_cannonPivotVertical = new CannonPivotVertical();
 
-  private final AutonomousMiddle m_autoCommand = new AutonomousMiddle(m_driveTrain, m_cannonPivotHorizontal, m_cannonPivotVertical);
+  private final AutonomousMiddle m_autoCommand = new AutonomousMiddle(m_driveTrain, m_cannonPivotHorizontal,
+      m_cannonPivotVertical);
 
   private final XboxController driverControllerXbox = new XboxController(0);
+
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
    */
@@ -41,9 +43,9 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
 
-    m_driveTrain.setDefaultCommand(new DriveWithController(m_driveTrain,
-    () -> -1 * driverControllerXbox.getY(GenericHID.Hand.kLeft),
-    () -> driverControllerXbox.getX(GenericHID.Hand.kLeft)));
+    m_driveTrain.setDefaultCommand(
+        new DriveWithController(m_driveTrain, () -> -1 * driverControllerXbox.getY(GenericHID.Hand.kLeft),
+            () -> driverControllerXbox.getX(GenericHID.Hand.kLeft)));
   }
 
   /**
@@ -54,14 +56,15 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
 
-
-    // TODO: what button/stick will Shoot()
-    
-
-    // TODO: what button/stick will LoadPowerCells()
-    // TODO: what button/stick will PivotCannonHorizontal()
-    // TODO: what button/stick will PivotCannonVertical()
-    // TODO: what button/stick will trigger Climb()
+    // TODO: add button bindings for the following
+    /*
+     * From Miles: Xbox controller 
+     * button/stick will Shoot(): right trigger what button/stick will
+     * LoadPowerCells(): right bumper what button/stick will
+     * PivotCannonHorizontal(): right stick X what button/stick will
+     * PivotCannonVertical(): right stick Y what button/stick will trigger Climb():
+     * B button press on/press off
+     */
 
   }
 
