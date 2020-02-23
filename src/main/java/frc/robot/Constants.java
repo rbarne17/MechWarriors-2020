@@ -41,7 +41,7 @@ public final class Constants {
     public static final int CLIMB_CLAW_MOTOR = 12;
     public static final int CANNON_BARREL_FEEDER_LEFT_MOTOR = 2;
     public static final int CANNON_BARREL_FEEDER_RIGHT_MOTOR = 3;
-
+  
     // sensor/motor translation constants
     // TODO: get real values for these
     public static final double CANNON_PIVOT_VERTICAL_TICKS_PER_DEGREE = 0;
