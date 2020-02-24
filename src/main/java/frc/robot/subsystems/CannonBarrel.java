@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import frc.robot.Constants;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
@@ -48,16 +49,6 @@ public class CannonBarrel extends SubsystemBase {
     setCannonBarrelFeeder(feederSpeed);
   }
 
-  private void setCannonBarrel(double speed) {
-    leftCannonBarrelMotor.set(speed);
-    rightCannonBarrelMotor.set(speed);
-  }
-
-  private void setCannonBarrelFeeder(double feederSpeed) {
-    leftCannonBarrelFeederMotor.set(feederSpeed);
-    rightCannonBarrelFeederMotor.set(feederSpeed);
-  }
-
   public void shootCannonBarrel() {
     setCannonBarrel(Constants.CANNON_BARREL_LOAD_SPEED);
     while (!getCannonBarrelReadyToShoot()) {
@@ -75,18 +66,30 @@ public class CannonBarrel extends SubsystemBase {
     }
   }
 
+  private void setCannonBarrel(double speed) {
+    leftCannonBarrelMotor.set(speed);
+    rightCannonBarrelMotor.set(speed);
+  }
+
+  private void setCannonBarrelFeeder(double feederSpeed) {
+    leftCannonBarrelFeederMotor.set(feederSpeed);
+    rightCannonBarrelFeederMotor.set(feederSpeed);
+  }
+
   private double getLeftEncoderSpeed() {
     return leftCannonBarrelMotor.getSelectedSensorVelocity();
 
   }
 
   private double getRightEncoderSpeed() {
-    return leftCannonBarrelMotor.getSelectedSensorVelocity();
+    return rightCannonBarrelMotor.getSelectedSensorVelocity();
 
   }
 
   @Override
   public void periodic() {
-    // This method will be called once per scheduler run
+    SmartDashboard.putBoolean("Cannon Barrel Ready To Shoot", getCannonBarrelReadyToShoot());
+    SmartDashboard.putNumber("Left Encoder Speed", getLeftEncoderSpeed());
+    SmartDashboard.putNumber("Right Encoder Speed", getRightEncoderSpeed());
   }
 }
