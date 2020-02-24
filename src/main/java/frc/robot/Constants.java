@@ -60,7 +60,6 @@ public final class Constants {
     public static final double GROUND_LOADER_SPEED = 0.5;
     public static final double DRIVETRAIN_SPEED = 0.5;
 
-
     // AUTONOMOUS MODE VALUES
     // TODO: get real values
     public static final double DRIVE_AUTONOMOUS_SHOOTING_DISTANCE = 0.5;
@@ -71,5 +70,9 @@ public final class Constants {
     public static final double CANNON_PIVOT_VERTICAL_AUTONOMOUS_MIDDLE_ANGLE = 0.5;
     public static final double CANNON_PIVOT_HORIZONTAL_AUTONOMOUS_RIGHT_ANGLE = 0.5;
     public static final double CANNON_PIVOT_VERTICAL_AUTONOMOUS_RIGHT_ANGLE = 0.5;
+
+    // OTHER CONSTANTS
+    // TODO: get real values
+    public static final int SHOOT_AUTONOMOUS_SECONDS = 3;
 
 }

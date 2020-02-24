@@ -13,11 +13,11 @@ import frc.robot.subsystems.CannonBarrel;
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html
-public class Shoot extends SequentialCommandGroup {
+public class ShootTeleop extends SequentialCommandGroup {
   /**
-   * Creates a new Shoot.
+   * Creates a new ShootTeleop.
    */
-  public Shoot(CannonBarrel cannonBarrel) {
-    super(new ShootCannonBarrel(cannonBarrel));
+  public ShootTeleop(CannonBarrel cannonBarrel) {
+    super(new ShootCannonBarrel(cannonBarrel, 0));
   }
 }

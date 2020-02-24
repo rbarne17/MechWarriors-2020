@@ -9,14 +9,18 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.commands.AutonomousLeft;
 import frc.robot.commands.AutonomousMiddle;
+import frc.robot.commands.AutonomousRight;
 import frc.robot.commands.Climb;
 import frc.robot.commands.DriveWithController;
 import frc.robot.commands.LoadPowerCells;
 import frc.robot.commands.PivotCannonHorizontalWithController;
 import frc.robot.commands.PivotCannonVerticalWithController;
 import frc.robot.commands.RamCannon;
-import frc.robot.commands.Shoot;
+import frc.robot.commands.ShootAutonomous;
+import frc.robot.commands.ShootTeleop;
 import frc.robot.subsystems.CannonBarrel;
 import frc.robot.subsystems.CannonPivotHorizontal;
 import frc.robot.subsystems.CannonPivotVertical;
@@ -45,7 +49,7 @@ public class RobotContainer {
   private final ClimbClaw m_climbClaw = new ClimbClaw();
   private final DriveTrain m_driveTrain = new DriveTrain();
   private final GroundLoader m_groundLoader = new GroundLoader();
-  private final AutonomousMiddle m_autoCommand = new AutonomousMiddle(m_driveTrain, m_cannonPivotHorizontal,
+  private final AutonomousMiddle m_autoCommand = new AutonomousMiddle(m_driveTrain, m_cannonBarrel,m_cannonPivotHorizontal,
       m_cannonPivotVertical);
 
   private final XboxController driverControllerXbox = new XboxController(0);
@@ -56,17 +60,9 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
+    configureDefaultCommands();
+    configureDashboard();
 
-    // default commands that will run whenever other commands have taken over
-    // associated subsystems
-    m_driveTrain.setDefaultCommand(
-        new DriveWithController(m_driveTrain, () -> -1 * driverControllerXbox.getY(GenericHID.Hand.kLeft),
-            () -> driverControllerXbox.getX(GenericHID.Hand.kLeft)));
-    m_cannonPivotHorizontal.setDefaultCommand(new PivotCannonHorizontalWithController(m_cannonPivotHorizontal,
-        () -> driverControllerXbox.getX(GenericHID.Hand.kRight)));
-    m_cannonPivotVertical.setDefaultCommand(new PivotCannonVerticalWithController(m_cannonPivotVertical,
-        () -> driverControllerXbox.getY(GenericHID.Hand.kRight)));
-    m_cannonRammer.setDefaultCommand(new RamCannon(m_cannonRammer));
   }
 
   /**
@@ -84,7 +80,45 @@ public class RobotContainer {
     buttonBumper.whenPressed(new LoadPowerCells(m_cannonPivotVertical, m_cannonPivotHorizontal, m_cannonRammer,
         m_cannonBarrel, m_groundLoader));
     buttonB.whenPressed(new Climb(m_climbClaw));
-    triggerRight.whenPressed(new Shoot(m_cannonBarrel));
+    triggerRight.whenPressed(new ShootTeleop(m_cannonBarrel));
+
+  }
+
+  private void configureDefaultCommands() {
+    // default commands that will run whenever other commands have taken over
+    // associated subsystems
+    m_driveTrain.setDefaultCommand(
+        new DriveWithController(m_driveTrain, () -> -1 * driverControllerXbox.getY(GenericHID.Hand.kLeft),
+            () -> driverControllerXbox.getX(GenericHID.Hand.kLeft)));
+    m_cannonPivotHorizontal.setDefaultCommand(new PivotCannonHorizontalWithController(m_cannonPivotHorizontal,
+        () -> driverControllerXbox.getX(GenericHID.Hand.kRight)));
+    m_cannonPivotVertical.setDefaultCommand(new PivotCannonVerticalWithController(m_cannonPivotVertical,
+        () -> driverControllerXbox.getY(GenericHID.Hand.kRight)));
+    m_cannonRammer.setDefaultCommand(new RamCannon(m_cannonRammer));
+  }
+
+  private void configureDashboard() {
+    //subsystems
+    SmartDashboard.putData(m_driveTrain);
+    SmartDashboard.putData(m_cannonBarrel);
+    SmartDashboard.putData(m_cannonPivotHorizontal);
+    SmartDashboard.putData(m_cannonPivotVertical);
+    SmartDashboard.putData(m_cannonRammer);
+    SmartDashboard.putData(m_climbClaw);
+    SmartDashboard.putData(m_driveTrain);
+    
+    //command groups
+    SmartDashboard.putData("Autonomous Left",new AutonomousLeft(m_driveTrain, m_cannonBarrel, m_cannonPivotHorizontal, m_cannonPivotVertical));
+    SmartDashboard.putData("Autonomous Middle",new AutonomousMiddle(m_driveTrain, m_cannonBarrel, m_cannonPivotHorizontal, m_cannonPivotVertical));
+    SmartDashboard.putData("Autonomous Right",new AutonomousRight(m_driveTrain, m_cannonBarrel, m_cannonPivotHorizontal, m_cannonPivotVertical));
+    SmartDashboard.putData("Load Power Cells",new LoadPowerCells(m_cannonPivotVertical, m_cannonPivotHorizontal, m_cannonRammer, m_cannonBarrel, m_groundLoader));
+    SmartDashboard.putData("Shoot Autonomous Autonomous Constant",new ShootAutonomous( m_cannonBarrel, Constants.SHOOT_AUTONOMOUS_SECONDS));
+    SmartDashboard.putData("Shoot Autonomous 5 seconds",new ShootAutonomous( m_cannonBarrel, 5));
+    
+    //commands
+
+
+
 
   }
 

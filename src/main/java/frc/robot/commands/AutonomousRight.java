@@ -9,6 +9,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.Constants;
+import frc.robot.subsystems.CannonBarrel;
 import frc.robot.subsystems.CannonPivotHorizontal;
 import frc.robot.subsystems.CannonPivotVertical;
 import frc.robot.subsystems.DriveTrain;
@@ -20,12 +21,13 @@ public class AutonomousRight extends SequentialCommandGroup {
   /**
    * Creates a new AutonomousRight.
    */
-  public AutonomousRight(DriveTrain driveTrain, CannonPivotHorizontal cannonPivotHorizontal,
+  public AutonomousRight(DriveTrain driveTrain, CannonBarrel cannonBarrel, CannonPivotHorizontal cannonPivotHorizontal,
       CannonPivotVertical cannonPivotVertical) {
     super(
         new PrepareCannonForShooting(driveTrain, cannonPivotHorizontal, cannonPivotVertical,
             Constants.CANNON_PIVOT_HORIZONTAL_AUTONOMOUS_RIGHT_ANGLE,
             Constants.CANNON_PIVOT_VERTICAL_AUTONOMOUS_RIGHT_ANGLE, Constants.DRIVE_AUTONOMOUS_SHOOTING_DISTANCE),
+        new ShootTeleop(cannonBarrel),
         new Drive(driveTrain, Constants.DRIVETRAIN_SPEED, 0, Constants.DRIVE_AUTONOMOUS_CROSS_LINE_DISTANCE));
   }
 }
