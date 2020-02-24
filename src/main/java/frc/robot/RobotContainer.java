@@ -129,6 +129,11 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // TODO: determine how to select the autonomous command without rewriting code
+
+    //REPLY ^^^^ inside of FRC's 2014 documentation they make reference to a "scheduler" in "RobotBuilder" that will
+    // 'generate code automatically that runs the scheduler every driver station update period' 
+    //we can look into this if this seems helpful(?) the link for the article is below:
+    // https://wpilib.screenstepslive.com/s/3120/m/7932/l/81109-choosing-an-autonomous-program-from-smartdashboard
     return m_autoCommand;
   }
 }
