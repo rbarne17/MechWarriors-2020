@@ -51,7 +51,7 @@ public class ShootCannonBarrel extends CommandBase {
   @Override
   public boolean isFinished() {
     //if m_shootSeconds is 0 or less, don't stop shooting
-    if (m_shootCannonBarrelTimer.get() > m_shootSeconds * 1000) {
+    if (m_shootCannonBarrelTimer.get() > m_shootSeconds) {
       return true;
     } else {
       return false;
