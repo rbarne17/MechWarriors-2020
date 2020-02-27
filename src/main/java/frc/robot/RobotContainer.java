@@ -20,6 +20,7 @@ import edu.wpi.first.vision.VisionThread;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID.RumbleType;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.AutonomousLeft;
 import frc.robot.commands.AutonomousMiddle;
@@ -68,10 +69,11 @@ public class RobotContainer {
   private final ClimbClaw m_climbClaw = new ClimbClaw();
   private final DriveTrain m_driveTrain = new DriveTrain();
   private final GroundLoader m_groundLoader = new GroundLoader();
-  private final AutonomousMiddle m_autoCommand = new AutonomousMiddle(m_driveTrain, m_cannonBarrel,
-      m_cannonPivotHorizontal, m_cannonPivotVertical);
+  private Command m_autoCommand;
 
   private final XboxController driverControllerXbox = new XboxController(0);
+
+  public SendableChooser<Command> autoPathChooser;
 
   private static final int IMG_WIDTH = 160; // Vision image width(pixels)
   private static final int IMG_HEIGHT = 120; // Vision image height(pixels)
@@ -227,15 +229,15 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    // TODO: determine how to select the autonomous command without rewriting code
-
-    // REPLY ^^^^ inside of FRC's 2014 documentation they make reference to a
-    // "scheduler" in "RobotBuilder" that will
-    // 'generate code automatically that runs the scheduler every driver station
-    // update period'
-    // we can look into this if this seems helpful(?) the link for the article is
-    // below:
-    // https://wpilib.screenstepslive.com/s/3120/m/7932/l/81109-choosing-an-autonomous-program-from-smartdashboard
+    autoPathChooser.setDefaultOption("Autonomous Left",
+        new AutonomousLeft(m_driveTrain, m_cannonBarrel, m_cannonPivotHorizontal, m_cannonPivotVertical));
+    autoPathChooser.addOption("Autonomous Left",
+        new AutonomousLeft(m_driveTrain, m_cannonBarrel, m_cannonPivotHorizontal, m_cannonPivotVertical));
+    autoPathChooser.addOption("Autonomous Middle",
+        new AutonomousMiddle(m_driveTrain, m_cannonBarrel, m_cannonPivotHorizontal, m_cannonPivotVertical));
+    autoPathChooser.addOption("Autonomous Right",
+        new AutonomousRight(m_driveTrain, m_cannonBarrel, m_cannonPivotHorizontal, m_cannonPivotVertical));
+    m_autoCommand = autoPathChooser.getSelected();
     return m_autoCommand;
   }
 }
