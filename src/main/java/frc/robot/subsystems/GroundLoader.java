@@ -17,7 +17,7 @@ import frc.robot.Constants;
 
 public class GroundLoader extends SubsystemBase {
 
-  private WPI_TalonSRX m_groundLoaderMotor = new WPI_TalonSRX(Constants.GROUND_LOADER_MOTOR);
+  //private WPI_TalonSRX m_groundLoaderMotor = new WPI_TalonSRX(Constants.GROUND_LOADER_MOTOR);
 
   public GroundLoader() {
     stopGroundLoader();
@@ -36,7 +36,7 @@ public class GroundLoader extends SubsystemBase {
   }
 
   private void setGroundLoaderMotor(double loadSpeed) {
-    m_groundLoaderMotor.set(loadSpeed);
+    //m_groundLoaderMotor.set(loadSpeed);
   }
 
   @Override

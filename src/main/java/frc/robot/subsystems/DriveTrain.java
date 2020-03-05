@@ -44,8 +44,8 @@ public class DriveTrain extends SubsystemBase {
     percentThrottle = scalingSpeed(percentThrottle);
     percentRotationOutput = scalingSpeed(percentRotationOutput);
 
-    m_leftMotor.set(-percentThrottle - percentRotationOutput);
-    m_rightMotor.set(percentThrottle - percentRotationOutput);
+    m_leftMotor.set((-percentThrottle - percentRotationOutput)*0.75);
+    m_rightMotor.set((percentThrottle - percentRotationOutput)*0.75);
 
   }
 

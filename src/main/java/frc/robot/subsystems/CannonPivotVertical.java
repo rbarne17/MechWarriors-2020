@@ -23,7 +23,7 @@ public class CannonPivotVertical extends SubsystemBase {
 
   // CAN motor with built in encoder, plus limit switch connected to DIO (latter
   // might change to CAN connected limit switch) '
-  private WPI_TalonSRX cannonPivotMotor = new WPI_TalonSRX(Constants.CANNON_PIVOT_HORIZONTAL_MOTOR);
+  //private WPI_TalonSRX cannonPivotMotor = new WPI_TalonSRX(Constants.CANNON_PIVOT_HORIZONTAL_MOTOR);
   private DigitalInput cannonPivotLimitZero = new DigitalInput(Constants.CANNON_PIVOT_VERTICAL_LIMIT_ZERO);
 
   public CannonPivotVertical() {
@@ -31,21 +31,21 @@ public class CannonPivotVertical extends SubsystemBase {
     // 1. stop motor
     // 2.set up CAN connected encoder
     stopCannonPivotVertical();
-    cannonPivotMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
+    //cannonPivotMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
   }
 
   public void pivotCannonAutonomous(boolean direction) {
     // direction true, clockwise
     // direction false, counterclockwise
     if (direction) {
-      cannonPivotMotor.set(Constants.CANNON_PIVOT_VERTICAL_SPEED);
+      //cannonPivotMotor.set(Constants.CANNON_PIVOT_VERTICAL_SPEED);
     } else {
-      cannonPivotMotor.set(-Constants.CANNON_PIVOT_VERTICAL_SPEED);
+      //cannonPivotMotor.set(-Constants.CANNON_PIVOT_VERTICAL_SPEED);
     }
   }
 
   public void pivotCannonTeleop(double speed) {
-    cannonPivotMotor.set(speed);
+    //cannonPivotMotor.set(speed);
   }
 
   public double getCannonPivotAngle() {
@@ -57,7 +57,7 @@ public class CannonPivotVertical extends SubsystemBase {
   }
 
   public void stopCannonPivotVertical() {
-    cannonPivotMotor.set(0.0);
+    //cannonPivotMotor.set(0.0);
   }
 
   public void setCannonPivotHome() {
@@ -80,11 +80,12 @@ public class CannonPivotVertical extends SubsystemBase {
   }
 
   private void resetCannonPivotEncoder() {
-    cannonPivotMotor.setSelectedSensorPosition(0);
+    //cannonPivotMotor.setSelectedSensorPosition(0);
   }
 
   private int getCannonPivotVerticalEncoderValue() {
-    return cannonPivotMotor.getSelectedSensorPosition();
+    //return cannonPivotMotor.getSelectedSensorPosition();
+    return 0;
   }
 
   @Override

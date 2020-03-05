@@ -30,16 +30,17 @@ public class DriveWithController extends CommandBase {
 
   }
 
-  // Called when the command is initially scheduled.
+   //Called when the command is initially scheduled.
   @Override
   public void initialize() {
 
-  }
+}
 
-  // Called every time the scheduler runs while the command is scheduled.
+   //Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
     m_driveTrain.driveByArcade(m_xSpeed.getAsDouble(), m_zRotation.getAsDouble());
+
 
   }
 

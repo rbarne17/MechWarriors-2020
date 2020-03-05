@@ -93,7 +93,7 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
     configureDefaultCommands();
-    configureVisionAssist();
+    //configureVisionAssist();
     configureDashboard();
 
   }
