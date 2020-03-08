@@ -11,8 +11,6 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DriveTrain;
 import java.util.function.DoubleSupplier;
 
-// TODO: see https://github.com/wpilibsuite/Gearsbot/blob/master/src/main/java/frc/robot/commands/TeleopDriveCommand.java and https://github.com/rbarne17/MechWarriors-2018/blob/master/src/main/java/org/usfirst/frc/team4764/robot/commands/DriveWithController.java for good example how to build this
-
 public class DriveWithController extends CommandBase {
   private final DoubleSupplier m_xSpeed;
   private final DoubleSupplier m_zRotation;

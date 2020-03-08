@@ -22,7 +22,7 @@ public class CannonPivotHorizontal extends SubsystemBase {
 
   // CAN motor with built in encoder, plus limit switch connected to DIO (latter
   // might change to CAN connected limit switch) '
-  //private WPI_TalonSRX cannonPivotMotor = new WPI_TalonSRX(Constants.CANNON_PIVOT_HORIZONTAL_MOTOR);
+  private WPI_TalonSRX cannonPivotMotor = new WPI_TalonSRX(Constants.CANNON_PIVOT_HORIZONTAL_MOTOR);
   private DigitalInput cannonpivotLimitZero = new DigitalInput(Constants.CANNON_PIVOT_HORIZONTAL_LIMIT_ZERO);
 
   public CannonPivotHorizontal() {
@@ -30,21 +30,21 @@ public class CannonPivotHorizontal extends SubsystemBase {
     // 1. stop motor
     // 2.set up CAN connected encoder
     stopCannonPivot();
-    //cannonPivotMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
+    cannonPivotMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
   }
 
   public void pivotCannonAutonomous(boolean direction) {
     // direction true, clockwise
     // direction false, counterclockwise
     if (direction) {
-      //cannonPivotMotor.set(Constants.CANNON_PIVOT_HORIZONTAL_SPEED);
+      cannonPivotMotor.set(Constants.CANNON_PIVOT_HORIZONTAL_SPEED);
     } else {
-      //cannonPivotMotor.set(-Constants.CANNON_PIVOT_HORIZONTAL_SPEED);
+      cannonPivotMotor.set(-Constants.CANNON_PIVOT_HORIZONTAL_SPEED);
     }
   }
 
   public void pivotCannonTeleop(double speed) {
-    //cannonPivotMotor.set(speed);
+    cannonPivotMotor.set(speed);
   }
 
   public double getCannonPivotAngle() {
@@ -56,7 +56,7 @@ public class CannonPivotHorizontal extends SubsystemBase {
   }
 
   public void stopCannonPivot() {
-    //cannonPivotMotor.set(0.0);
+    cannonPivotMotor.set(0.0);
   }
 
   public void setCannonPivotHome() {
@@ -79,12 +79,11 @@ public class CannonPivotHorizontal extends SubsystemBase {
   }
 
   private void resetCannonPivotEncoder() {
-    //cannonPivotMotor.setSelectedSensorPosition(0);
+    cannonPivotMotor.setSelectedSensorPosition(0);
   }
 
   private int getCannonPivotEncoderValue() {
-    //return cannonPivotMotor.getSelectedSensorPosition();
-    return 0;
+    return cannonPivotMotor.getSelectedSensorPosition();
   }
 
   @Override

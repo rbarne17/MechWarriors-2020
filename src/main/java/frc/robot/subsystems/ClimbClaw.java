@@ -16,7 +16,7 @@ public class ClimbClaw extends SubsystemBase {
    * Creates a new ClimbClaw.
    */
 
-  //private WPI_TalonSRX climbClawMotor = new WPI_TalonSRX(Constants.CLIMB_CLAW_MOTOR);
+  private WPI_TalonSRX climbClawMotor = new WPI_TalonSRX(Constants.CLIMB_CLAW_MOTOR);
 
   public ClimbClaw() {
 
@@ -42,7 +42,7 @@ public class ClimbClaw extends SubsystemBase {
   }
 
   private void setClimbClawMotor(double climbSpeed) {
-    //climbClawMotor.set(climbSpeed);
+    climbClawMotor.set(climbSpeed);
   }
 
   @Override

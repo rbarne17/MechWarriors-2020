@@ -18,25 +18,25 @@ public class CannonBarrel extends SubsystemBase {
   /**
    * Creates a new CannonBarrel.
    */
-  /*private WPI_TalonSRX leftCannonBarrelMotor = new WPI_TalonSRX(Constants.CANNON_BARREL_LEFT_MOTOR);
+  private WPI_TalonSRX leftCannonBarrelMotor = new WPI_TalonSRX(Constants.CANNON_BARREL_LEFT_MOTOR);
   private WPI_TalonSRX rightCannonBarrelMotor = new WPI_TalonSRX(Constants.CANNON_BARREL_RIGHT_MOTOR);
   private WPI_TalonSRX leftCannonBarrelFeederMotor = new WPI_TalonSRX(Constants.CANNON_BARREL_FEEDER_LEFT_MOTOR);
-  private WPI_TalonSRX rightCannonBarrelFeederMotor = new WPI_TalonSRX(Constants.CANNON_BARREL_FEEDER_RIGHT_MOTOR);*/
+  private WPI_TalonSRX rightCannonBarrelFeederMotor = new WPI_TalonSRX(Constants.CANNON_BARREL_FEEDER_RIGHT_MOTOR);
 
   public CannonBarrel() {
 
     stopCannonBarrel();
-    //leftCannonBarrelMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
-    //rightCannonBarrelMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
+    leftCannonBarrelMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
+    rightCannonBarrelMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
   }
 
   public void stopCannonBarrel() {
 
-    //leftCannonBarrelMotor.set(0);
-    //rightCannonBarrelMotor.set(0);
+    leftCannonBarrelMotor.set(0);
+    rightCannonBarrelMotor.set(0);
 
-    //leftCannonBarrelFeederMotor.set(0);
-    //rightCannonBarrelFeederMotor.set(0);
+    leftCannonBarrelFeederMotor.set(0);
+    rightCannonBarrelFeederMotor.set(0);
   }
 
   public void loadCannonBarrelForStorage(double barrelSpeed, double feederSpeed) {
@@ -67,23 +67,22 @@ public class CannonBarrel extends SubsystemBase {
   }
 
   private void setCannonBarrel(double speed) {
-    //leftCannonBarrelMotor.set(speed);
-    //rightCannonBarrelMotor.set(speed);
+    leftCannonBarrelMotor.set(speed);
+    rightCannonBarrelMotor.set(speed);
   }
 
   private void setCannonBarrelFeeder(double feederSpeed) {
-    //leftCannonBarrelFeederMotor.set(feederSpeed);
-    //rightCannonBarrelFeederMotor.set(feederSpeed);
+    leftCannonBarrelFeederMotor.set(feederSpeed);
+    rightCannonBarrelFeederMotor.set(feederSpeed);
   }
 
   private double getLeftEncoderSpeed() {
-    //return leftCannonBarrelMotor.getSelectedSensorVelocity();
-    return 0;
+    return leftCannonBarrelMotor.getSelectedSensorVelocity();
+
   }
 
   private double getRightEncoderSpeed() {
-    //return rightCannonBarrelMotor.getSelectedSensorVelocity();
-    return 0;
+    return rightCannonBarrelMotor.getSelectedSensorVelocity();
 
   }
 

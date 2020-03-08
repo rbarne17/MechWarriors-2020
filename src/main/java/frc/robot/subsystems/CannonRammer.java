@@ -17,7 +17,7 @@ public class CannonRammer extends SubsystemBase {
    * Creates a new CannonRammer.
    */
 
-  //private WPI_TalonSRX m_cannonrammermotor = new WPI_TalonSRX(Constants.CANNON_RAMMER_MOTOR);
+  private WPI_TalonSRX m_cannonrammermotor = new WPI_TalonSRX(Constants.CANNON_RAMMER_MOTOR);
   private DigitalInput rammerHomeLimitSwitch = new DigitalInput(Constants.CANNON_RAMMER_LIMIT_HOME);
   private DigitalInput rammerBallPositionIRSensor = new DigitalInput(Constants.CANNON_RAMMER_BEAM_SENSOR_BALL_IN_POSITION);
 
@@ -53,7 +53,7 @@ public class CannonRammer extends SubsystemBase {
   }
 
   private void setCannonRammer(double rammerSpeed) {
-    //m_cannonrammermotor.set(rammerSpeed);
+    m_cannonrammermotor.set(rammerSpeed);
   }
 
   @Override
