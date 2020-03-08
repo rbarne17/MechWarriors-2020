@@ -50,15 +50,15 @@ public final class Constants {
 
     // preferred speeds for subsystems
     // TODO: get real speeds for these motors
-    public static final double CANNON_PIVOT_HORIZONTAL_SPEED = 0.5;
-    public static final double CANNON_PIVOT_VERTICAL_SPEED = 0.5;
-    public static final double CANNON_BARREL_LOAD_SPEED = 0.5;
-    public static final double CANNON_BARREL_SHOOT_SPEED = 0.5;
-    public static final double CANNON_BARREL_FEEDER_SPEED = 0.5;
-    public static final double CANNON_RAMMER_SPEED = 0.5;
-    public static final double CLIMB_CLAW_SPEED = .5;
-    public static final double GROUND_LOADER_SPEED = 0.5;
-    public static final double DRIVETRAIN_SPEED = 0.5;
+    public static final double CANNON_PIVOT_HORIZONTAL_SPEED = 0.3;
+    public static final double CANNON_PIVOT_VERTICAL_SPEED = 0.3;
+    public static final double CANNON_BARREL_LOAD_SPEED = 0.3;
+    public static final double CANNON_BARREL_SHOOT_SPEED = 0.3;
+    public static final double CANNON_BARREL_FEEDER_SPEED = 0.3;
+    public static final double CANNON_RAMMER_SPEED = 0.3;
+    public static final double CLIMB_CLAW_SPEED = .3;
+    public static final double GROUND_LOADER_SPEED = 0.3;
+    public static final double DRIVETRAIN_SPEED = 0.3;
 
     // AUTONOMOUS MODE VALUES
     // TODO: get real values
