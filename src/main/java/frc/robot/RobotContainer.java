@@ -62,13 +62,13 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 public class RobotContainer {
 
   // The robot's subsystems and commands are defined here...
-  private final CannonBarrel m_cannonBarrel = new CannonBarrel();
-  private final CannonPivotHorizontal m_cannonPivotHorizontal = new CannonPivotHorizontal();
-  private final CannonPivotVertical m_cannonPivotVertical = new CannonPivotVertical();
-  private final CannonRammer m_cannonRammer = new CannonRammer();
-  private final ClimbClaw m_climbClaw = new ClimbClaw();
+  // private final CannonBarrel m_cannonBarrel = new CannonBarrel();
+  // private final CannonPivotHorizontal m_cannonPivotHorizontal = new CannonPivotHorizontal();
+  // private final CannonPivotVertical m_cannonPivotVertical = new CannonPivotVertical();
+  // private final CannonRammer m_cannonRammer = new CannonRammer();
+  // private final ClimbClaw m_climbClaw = new ClimbClaw();
   private final DriveTrain m_driveTrain = new DriveTrain();
-  private final GroundLoader m_groundLoader = new GroundLoader();
+  // private final GroundLoader m_groundLoader = new GroundLoader();
   private Command m_autoCommand;
 
   private final XboxController driverControllerXbox = new XboxController(0);
@@ -110,10 +110,10 @@ public class RobotContainer {
     final Button buttonB = new JoystickButton(driverControllerXbox, XboxController.Button.kB.value);
     final Button triggerRight = new JoystickButton(driverControllerXbox, XboxController.Axis.kRightTrigger.value);
 
-    buttonBumper.whenPressed(new LoadPowerCells(m_cannonPivotVertical, m_cannonPivotHorizontal, m_cannonRammer,
-        m_cannonBarrel, m_groundLoader));
-    buttonB.whenPressed(new Climb(m_climbClaw));
-    triggerRight.whenPressed(new ShootTeleop(m_cannonBarrel));
+    // buttonBumper.whenPressed(new LoadPowerCells(m_cannonPivotVertical, m_cannonPivotHorizontal, m_cannonRammer,
+    //     m_cannonBarrel, m_groundLoader));
+    // buttonB.whenPressed(new Climb(m_climbClaw));
+    // triggerRight.whenPressed(new ShootTeleop(m_cannonBarrel));
 
   }
 
@@ -123,11 +123,11 @@ public class RobotContainer {
     m_driveTrain.setDefaultCommand(
         new DriveWithController(m_driveTrain, () -> -1 * driverControllerXbox.getY(GenericHID.Hand.kLeft),
             () -> driverControllerXbox.getX(GenericHID.Hand.kLeft)));
-    m_cannonPivotHorizontal.setDefaultCommand(new PivotCannonHorizontalWithController(m_cannonPivotHorizontal,
-        () -> driverControllerXbox.getX(GenericHID.Hand.kRight)));
-    m_cannonPivotVertical.setDefaultCommand(new PivotCannonVerticalWithController(m_cannonPivotVertical,
-        () -> driverControllerXbox.getY(GenericHID.Hand.kRight)));
-    m_cannonRammer.setDefaultCommand(new RamCannon(m_cannonRammer));
+    // m_cannonPivotHorizontal.setDefaultCommand(new PivotCannonHorizontalWithController(m_cannonPivotHorizontal,
+    //     () -> driverControllerXbox.getX(GenericHID.Hand.kRight)));
+    // m_cannonPivotVertical.setDefaultCommand(new PivotCannonVerticalWithController(m_cannonPivotVertical,
+    //     () -> driverControllerXbox.getY(GenericHID.Hand.kRight)));
+    // m_cannonRammer.setDefaultCommand(new RamCannon(m_cannonRammer));
   }
 
   private void configureVisionAssist() {
@@ -188,38 +188,38 @@ public class RobotContainer {
 
   private void configureDashboard() {
     // subsystems
-    SmartDashboard.putData(m_driveTrain);
-    SmartDashboard.putData(m_cannonBarrel);
-    SmartDashboard.putData(m_cannonPivotHorizontal);
-    SmartDashboard.putData(m_cannonPivotVertical);
-    SmartDashboard.putData(m_cannonRammer);
-    SmartDashboard.putData(m_climbClaw);
+    // SmartDashboard.putData(m_driveTrain);
+    // SmartDashboard.putData(m_cannonBarrel);
+    // SmartDashboard.putData(m_cannonPivotHorizontal);
+    // SmartDashboard.putData(m_cannonPivotVertical);
+    // SmartDashboard.putData(m_cannonRammer);
+    // SmartDashboard.putData(m_climbClaw);
     SmartDashboard.putData(m_driveTrain);
 
     // command groups
-    SmartDashboard.putData("Autonomous Left",
-        new AutonomousLeft(m_driveTrain, m_cannonBarrel, m_cannonPivotHorizontal, m_cannonPivotVertical));
-    SmartDashboard.putData("Autonomous Middle",
-        new AutonomousMiddle(m_driveTrain, m_cannonBarrel, m_cannonPivotHorizontal, m_cannonPivotVertical));
-    SmartDashboard.putData("Autonomous Right",
-        new AutonomousRight(m_driveTrain, m_cannonBarrel, m_cannonPivotHorizontal, m_cannonPivotVertical));
-    SmartDashboard.putData("Load Power Cells", new LoadPowerCells(m_cannonPivotVertical, m_cannonPivotHorizontal,
-        m_cannonRammer, m_cannonBarrel, m_groundLoader));
-    SmartDashboard.putData("Shoot Autonomous Autonomous Constant",
-        new ShootAutonomous(m_cannonBarrel, Constants.SHOOT_AUTONOMOUS_SECONDS));
-    SmartDashboard.putData("Shoot Autonomous 5 seconds", new ShootAutonomous(m_cannonBarrel, 5));
-    SmartDashboard.putData(
-        "Prepare Cannon for Shooting - Drive 2 Feet, Pivot Horizontal 30 Degrees, Pivot Vertical 30 Degrees",
-        new PrepareCannonForShooting(m_driveTrain, m_cannonPivotHorizontal, m_cannonPivotVertical, 24, 30, 30));
-    // commands
-    SmartDashboard.putData("Climb", new Climb(m_climbClaw));
-    SmartDashboard.putData("Drive Forward 5 Feet", new Drive(m_driveTrain, Constants.DRIVETRAIN_SPEED, 0, 60));
-    SmartDashboard.putData("Load Power Cells Cannon", new LoadPowerCellsCannon(m_cannonBarrel));
-    SmartDashboard.putData("Load Power Cells Ground", new LoadPowerCellsGround(m_groundLoader));
-    SmartDashboard.putData("Load Power Cells Rammer", new LoadPowerCellsRammer(m_cannonRammer));
-    SmartDashboard.putData("Pivot Cannon Horizontal 30 Degrees",
-        new PivotCannonHorizontal(m_cannonPivotHorizontal, 30));
-    SmartDashboard.putData("Pivot Cannon Vertical 30 Degrees", new PivotCannonVertical(m_cannonPivotVertical, 30));
+    // SmartDashboard.putData("Autonomous Left",
+    //     new AutonomousLeft(m_driveTrain, m_cannonBarrel, m_cannonPivotHorizontal, m_cannonPivotVertical));
+    // SmartDashboard.putData("Autonomous Middle",
+    //     new AutonomousMiddle(m_driveTrain, m_cannonBarrel, m_cannonPivotHorizontal, m_cannonPivotVertical));
+    // SmartDashboard.putData("Autonomous Right",
+    //     new AutonomousRight(m_driveTrain, m_cannonBarrel, m_cannonPivotHorizontal, m_cannonPivotVertical));
+    // SmartDashboard.putData("Load Power Cells", new LoadPowerCells(m_cannonPivotVertical, m_cannonPivotHorizontal,
+    //     m_cannonRammer, m_cannonBarrel, m_groundLoader));
+    // SmartDashboard.putData("Shoot Autonomous Autonomous Constant",
+    //     new ShootAutonomous(m_cannonBarrel, Constants.SHOOT_AUTONOMOUS_SECONDS));
+    // SmartDashboard.putData("Shoot Autonomous 5 seconds", new ShootAutonomous(m_cannonBarrel, 5));
+    // SmartDashboard.putData(
+    //     "Prepare Cannon for Shooting - Drive 2 Feet, Pivot Horizontal 30 Degrees, Pivot Vertical 30 Degrees",
+    //     new PrepareCannonForShooting(m_driveTrain, m_cannonPivotHorizontal, m_cannonPivotVertical, 24, 30, 30));
+    // // commands
+    // SmartDashboard.putData("Climb", new Climb(m_climbClaw));
+    // SmartDashboard.putData("Drive Forward 5 Feet", new Drive(m_driveTrain, Constants.DRIVETRAIN_SPEED, 0, 60));
+    // SmartDashboard.putData("Load Power Cells Cannon", new LoadPowerCellsCannon(m_cannonBarrel));
+    // SmartDashboard.putData("Load Power Cells Ground", new LoadPowerCellsGround(m_groundLoader));
+    // SmartDashboard.putData("Load Power Cells Rammer", new LoadPowerCellsRammer(m_cannonRammer));
+    // SmartDashboard.putData("Pivot Cannon Horizontal 30 Degrees",
+    //     new PivotCannonHorizontal(m_cannonPivotHorizontal, 30));
+    // SmartDashboard.putData("Pivot Cannon Vertical 30 Degrees", new PivotCannonVertical(m_cannonPivotVertical, 30));
 
   }
 
@@ -229,14 +229,14 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    autoPathChooser.setDefaultOption("Autonomous Left",
-        new AutonomousLeft(m_driveTrain, m_cannonBarrel, m_cannonPivotHorizontal, m_cannonPivotVertical));
-    autoPathChooser.addOption("Autonomous Left",
-        new AutonomousLeft(m_driveTrain, m_cannonBarrel, m_cannonPivotHorizontal, m_cannonPivotVertical));
-    autoPathChooser.addOption("Autonomous Middle",
-        new AutonomousMiddle(m_driveTrain, m_cannonBarrel, m_cannonPivotHorizontal, m_cannonPivotVertical));
-    autoPathChooser.addOption("Autonomous Right",
-        new AutonomousRight(m_driveTrain, m_cannonBarrel, m_cannonPivotHorizontal, m_cannonPivotVertical));
+    // autoPathChooser.setDefaultOption("Autonomous Left",
+    //     new AutonomousLeft(m_driveTrain, m_cannonBarrel, m_cannonPivotHorizontal, m_cannonPivotVertical));
+    // autoPathChooser.addOption("Autonomous Left",
+    //     new AutonomousLeft(m_driveTrain, m_cannonBarrel, m_cannonPivotHorizontal, m_cannonPivotVertical));
+    // autoPathChooser.addOption("Autonomous Middle",
+    //     new AutonomousMiddle(m_driveTrain, m_cannonBarrel, m_cannonPivotHorizontal, m_cannonPivotVertical));
+    // autoPathChooser.addOption("Autonomous Right",
+    //     new AutonomousRight(m_driveTrain, m_cannonBarrel, m_cannonPivotHorizontal, m_cannonPivotVertical));
     m_autoCommand = autoPathChooser.getSelected();
     return m_autoCommand;
   }
